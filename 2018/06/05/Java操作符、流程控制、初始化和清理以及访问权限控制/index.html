@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Java操作符、流程控制以及初始化和清理 | arvinljwBlog</title>
+  <title>Java操作符、流程控制、初始化和清理以及访问权限控制 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文是阅读《Thingking in Java》第三、四、五章的总结，包含了Java操作符，流程控制以及初始化和清理，只记录一些我认为不那么容易理解知识点。">
+  <meta name="description" content="本文是阅读《Thingking in Java》第三、四、五、六章的总结，包含了Java操作符，流程控制，初始化和清理以及访问权限控制，只记录一些我认为不那么容易理解知识点。">
 <meta name="keywords" content="Java,《Thinking in Java》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java操作符、流程控制以及初始化和清理">
-<meta property="og:url" content="https://arvinljw.github.io/2018/06/05/Java操作符、流程控制以及初始化和清理/index.html">
+<meta property="og:title" content="Java操作符、流程控制、初始化和清理以及访问权限控制">
+<meta property="og:url" content="https://arvinljw.github.io/2018/06/05/Java操作符、流程控制、初始化和清理以及访问权限控制/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="本文是阅读《Thingking in Java》第三、四、五章的总结，包含了Java操作符，流程控制以及初始化和清理，只记录一些我认为不那么容易理解知识点。">
+<meta property="og:description" content="本文是阅读《Thingking in Java》第三、四、五、六章的总结，包含了Java操作符，流程控制，初始化和清理以及访问权限控制，只记录一些我认为不那么容易理解知识点。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-05T06:25:39.848Z">
+<meta property="og:updated_time" content="2018-06-05T06:43:28.004Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java操作符、流程控制以及初始化和清理">
-<meta name="twitter:description" content="本文是阅读《Thingking in Java》第三、四、五章的总结，包含了Java操作符，流程控制以及初始化和清理，只记录一些我认为不那么容易理解知识点。">
+<meta name="twitter:title" content="Java操作符、流程控制、初始化和清理以及访问权限控制">
+<meta name="twitter:description" content="本文是阅读《Thingking in Java》第三、四、五、六章的总结，包含了Java操作符，流程控制，初始化和清理以及访问权限控制，只记录一些我认为不那么容易理解知识点。">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -173,19 +173,19 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java操作符、流程控制以及初始化和清理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java操作符、流程控制、初始化和清理以及访问权限控制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java操作符、流程控制以及初始化和清理
+      Java操作符、流程控制、初始化和清理以及访问权限控制
     </h1>
   
 
         
-        <a href="/2018/06/05/Java操作符、流程控制以及初始化和清理/" class="archive-article-date">
+        <a href="/2018/06/05/Java操作符、流程控制、初始化和清理以及访问权限控制/" class="archive-article-date">
   	<time datetime="2018-06-05T03:26:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
 </a>
         
@@ -193,7 +193,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文是阅读《Thingking in Java》第三、四、五章的总结，包含了Java操作符，流程控制以及初始化和清理，只记录一些我认为不那么容易理解知识点。</p>
+        <p>本文是阅读《Thingking in Java》第三、四、五、六章的总结，包含了Java操作符，流程控制，初始化和清理以及访问权限控制，只记录一些我认为不那么容易理解知识点。</p>
 <a id="more"></a>
 <h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p>在Java中操作符有很多，整理如下：</p>
 <table>
@@ -395,6 +395,38 @@ var _hmt = _hmt || [];
 <p><strong>父类静态变量&gt;子类静态变量&gt;父类变量&gt;父类构造函数&gt;子类变量&gt;子类构造函数</strong></p>
 <p>触发条件：静态变量只要该类被用到就会初始化；普通变量需要创建实例；父类构造函数如果子类没有调用则默认调用的构造函数；同一个类中同一级别的调用顺序和代码顺序有关。</p>
 <p><em>上述中的静态变量和普通变量都是值在申明时就赋值的。</em></p>
+<h2 id="访问权限控制"><a href="#访问权限控制" class="headerlink" title="访问权限控制"></a>访问权限控制</h2><p>包含的关键字有：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">关键字</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">private</td>
+<td>只有当前类可以访问</td>
+</tr>
+<tr>
+<td style="text-align:center">protected</td>
+<td>当前类和子类可以访问</td>
+</tr>
+<tr>
+<td style="text-align:center">public</td>
+<td>所有位置都可以访问</td>
+</tr>
+<tr>
+<td style="text-align:center">缺省</td>
+<td>默认包，在同一个包内，可以当作public来看，在其他包内就当作private来看</td>
+</tr>
+<tr>
+<td style="text-align:center">import</td>
+<td>使用非同一个包内的类时，需要引用类的完全限定名，对于静态方法和字段可采用静态引用，即import static packageName.className;</td>
+</tr>
+</tbody>
+</table>
+<p>以上的关键字都可作用于类以及类的字段和方法上，在开发中，对于接口固定，内部调用的实现方法可作为private，以保证版本控制时，内部实现改变但是使用方法不变，利于程序的维护，也可以讲不想被用户使用到的代码隐藏起来不被直接调用。</p>
 
       
 
@@ -468,7 +500,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/06/05/Java操作符、流程控制以及初始化和清理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/06/05/Java操作符、流程控制、初始化和清理以及访问权限控制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -523,7 +555,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://arvinljw.github.io/2018/06/05/Java操作符、流程控制以及初始化和清理/",
+  id: "https://arvinljw.github.io/2018/06/05/Java操作符、流程控制、初始化和清理以及访问权限控制/",
   owner: 'arvinljw',
   repo: 'arvinljw.github.io',
   oauth: {
@@ -634,11 +666,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">《Thinking in Java》</a>
+                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
+                <a href="javascript:void(0)" class="js-tag color4">《Thinking in Java》</a>
               </li>
              
               <li class="article-tag-list-item">
