@@ -6,18 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Tag: Android | arvinljwBlog</title>
+  <title>Android之ViewPager使用 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android、Python等学习总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="arvinljwBlog">
-<meta property="og:url" content="https://arvinljw.github.io/tags/Android/index.html">
+  <meta name="description" content="本篇包含：实现一屏多页、自定义PageTransformer、OnPageChangeListener方法参数的解释和应用">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android之ViewPager使用">
+<meta property="og:url" content="https://arvinljw.github.io/2017/06/05/Android之ViewPager使用/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="Android、Python等学习总结">
+<meta property="og:description" content="本篇包含：实现一屏多页、自定义PageTransformer、OnPageChangeListener方法参数的解释和应用">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3157525-8069242c2ec53d1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-d88c2a5215a0e4f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3157525-cae15d55b5e0a12d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3157525-5d54704ba911ea94.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3157525-f4fdb367aaa16d8b.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2018-06-08T03:08:42.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arvinljwBlog">
-<meta name="twitter:description" content="Android、Python等学习总结">
+<meta name="twitter:title" content="Android之ViewPager使用">
+<meta name="twitter:description" content="本篇包含：实现一屏多页、自定义PageTransformer、OnPageChangeListener方法参数的解释和应用">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3157525-8069242c2ec53d1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -171,282 +179,132 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Android之ViewPager使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/28/Android源码分析之PhotoView/" class="archive-article-date">
-  	<time datetime="2017-12-28T09:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/28/Android源码分析之PhotoView/">Android源码分析之PhotoView</a>
+    <h1 class="article-title" itemprop="name">
+      Android之ViewPager使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/01/Android开源之SocialHelper/" class="archive-article-date">
-  	<time datetime="2017-12-01T06:11:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/01/Android开源之SocialHelper/">Android开源之SocialHelper</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/Android动态更换桌面图标/" class="archive-article-date">
-  	<time datetime="2017-10-10T02:38:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/Android动态更换桌面图标/">Android动态更换桌面图标</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/05/Android之ViewPager使用/" class="archive-article-date">
+        
+        <a href="/2017/06/05/Android之ViewPager使用/" class="archive-article-date">
   	<time datetime="2017-06-05T05:05:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/05/Android之ViewPager使用/">Android之ViewPager使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/10/Android代码混淆/" class="archive-article-date">
-  	<time datetime="2017-04-10T03:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/10/Android代码混淆/">Android代码混淆</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/20/Android消息机制/" class="archive-article-date">
-  	<time datetime="2017-02-20T06:40:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/20/Android消息机制/">Android消息机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/19/Android之Activity总结/" class="archive-article-date">
-  	<time datetime="2016-11-19T06:50:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/19/Android之Activity总结/">Android之Activity总结</a>
-    </h1>
-  
+        <p>本篇包含：实现一屏多页、自定义PageTransformer、OnPageChangeListener方法参数的解释和应用</p>
+<a id="more"></a>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>ViewPager在开发过程中的使用就不用多说了，那肯定是很多场景都会用到，其实使用它很简单，就两部就能使用了：</p>
+<ul>
+<li>拿到一个ViewPager实例</li>
+<li>设置一个适配器</li>
+</ul>
+<p>其中适配器的实现方式有三种：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PagerAdapter</td>
+<td>主要是用在比较单一的View时比较方便</td>
+</tr>
+<tr>
+<td>FragmentPagerAdapter</td>
+<td>主要是用在内容为Fragment时，当这些Fragment比较少时使用</td>
+</tr>
+<tr>
+<td>FragmentStatePagerAdapter</td>
+<td>主要是用在内容为Fragment时，当Fragment比较多时使用，可保存Fragment的状态</td>
+</tr>
+</tbody>
+</table>
+<p>具体的使用方式这里就不介绍了，都比较简单。</p>
+<p><em>注：对于Fragment的创建，尽量做到需要创建时再创建</em></p>
+<h2 id="一屏多页"><a href="#一屏多页" class="headerlink" title="一屏多页"></a>一屏多页</h2><p>这里可以先看看实现的效果</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3157525-8069242c2ec53d1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pager_1.png"></p>
+<p>难看是难看了点，但是效果是有了，就好比麻雀虽丑，五脏还是俱全的。其实这个知识点，挺简单，并没有想象中那么难，要做到的其实也就几步：</p>
+<ul>
+<li>给ViewPager的父容器添加 android:clipChildren=”false” 和<br>android:layerType=”software”属性</li>
+<li>为ViewPager添加layout_marginLeft和layout_marginRight，并设一个值</li>
+<li>再拿到实例，设置Adapter即可</li>
+</ul>
+<p>这样基本就能出效果，就能看到下一页的内容能显示在屏幕中了，这两点的含义也比较简单，clipChildren就是是否裁剪子View，默认为true的，layerType这个是用来关闭硬件加速的；第二点的margin是让一页的宽度不要占满整个屏幕，这样才能让下一页或上一页的显示出来。</p>
+<p>这时候会发现，每一页都是挨在一起的，我们怎么把他们分开呢，其实在不知道的情况下，我们可以给把自己内容加上一个padding，那么就分开了，但是Android给我们提供了方法pager.setPageMargin，这个就是设置页与页之间的间距的。</p>
+<p>这时候细心的同学又会发现一个问题，下一页为什么总是在滚动完之后才被显示出来，会闪一下，这个效果可不友好，这时候其实是由于ViewPager的缓存机制在作怪，我们可以通过pager.setOffscreenPageLimit来解决这个问题，这个值默认是1，所以它每次到下一页都会闪一下，但是不代表它只缓存了一页，其实是三页，这里先不解释为什么，那么我们现在只需要把这个值设置为2，就能让下一页的出来，而且保证不闪一下，可以先这么理解，值为1时，只管当前页一定先加载出来的，值为2时，保证当前页和下一页一定被加载出来了。</p>
+<p>好这一部分的实现就到这里。</p>
+<h2 id="自定义PageTransformer"><a href="#自定义PageTransformer" class="headerlink" title="自定义PageTransformer"></a>自定义PageTransformer</h2><p>这个东西，如果你看过他是什么的话，应该就不怕了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface PageTransformer &#123;</span><br><span class="line">    void transformPage(View page, float position);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你看，是不是纸老虎，就一个方法，两个参数而已，注释我删了=_=|。</p>
+<p>其中page和position是配对的，page是position所对应的那个view，其实最关键就是这个position了，它其实也很简单，你可以先这么理解，当所有页都被加载出来之后，这些页面都会对应着一个position。</p>
+<p>当静止不滑动的时候，当前的position就是0，它右边的就是1，2，3…它左边的就是-1，-2，-3…所以我们想操作某一页都可以以当前页为基准，那样就所有页面都能操作了。</p>
+<p>当滑动时，position就是变化的了，其中从右往左滑的时候，是所有position都变小，即从position到position-1，反之亦然；Android给我们也提供过一些简单的切换效果，我就假设你知道了，这里呢，其实我还可以来个跟简单点的，就只是透明度的变化，左右两边的我都默认为0.3，中间的是1，所以透明度切换的过程就是从1到0.3或者0.3到1。而postion是从postion到postion-1，这里我们可以看到，这是一个分段函数，都是一元一次方程，分界线是postion为0的点，只管[-1,1]的区间的画，大概是这个样子：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-d88c2a5215a0e4f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="page_2.png"></p>
+<p><em>求不吐槽照片，电脑画不太熟，太慢=_=|</em></p>
+<p>这个我们知道position就是x，alpha值就是y，在小于0的部分函数关系就是：<br>y=0.7(1+x)+0.3<br>大于0的部分函数关系是：<br>y=0.7(1-postion)+0.3<br>0的部分归到哪边都一样，所以我们就能写这一部分的代码了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class AlphaTransformer implements ViewPager.PageTransformer &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void transformPage(View page, float position) &#123;</span><br><span class="line">        if (position &lt;= 0) &#123;</span><br><span class="line">            float alpha = 0.7f * (1 + position) + 0.3f;</span><br><span class="line">            page.setAlpha(alpha);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            float alpha = 0.7f * (1 - position) + 0.3f;</span><br><span class="line">            page.setAlpha(alpha);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后再调用pager.setPageTransformer(true,new AlphaTransformer());<br>这样就实现了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3157525-cae15d55b5e0a12d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pager_3.png"></p>
+<p>有没有看到左右两边不那么红了，其实就是因为透明度被改变了，这里就没有弄动态图了，效果已经出来了。有的朋友说等等，间距变大了，对，我这里把间距调大了。。感觉挨在一起不好看，虽然现在也不大好看=_=|。</p>
+<p>再来看个复杂点的效果</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3157525-5d54704ba911ea94.gif?imageMogr2/auto-orient/strip" alt="pager_4.gif"></p>
+<p>模拟器录的，有点快，但是多看两遍还是可以看出其规律的。</p>
+<p>这里我把ViewPager的布局和加载的Fragment换了下，之前的那个就不大好看了，这里也把页面循环滑动去掉了。</p>
+<p>好我们来分析一下，它默认是要显示出后边几页，并像卡片一样叠在下边，这里可以看到是总共三张，这里边用到了透明度变化，x方向偏移，y方向偏移，以及x和y方向的缩放，这个其实是项目中的一个卡片式布局的备选方案，结果没用上，用了透明度那个，当然还有背景颜色的变化下文介绍，还有一个页面跳转的动画比较炫之后会介绍。</p>
+<p>我们来通过position分析一下，再不滑动的情况下<br>(-INF,-1)的时候，即左边的第二页及其左边的，其实是看不到的，所以我们只需要将其透明度设置为0，甚至不管都可以。<br>[-1,0]，即左边第一页，若是滑动的话是从当前页往左滑的时候，透明度从1到0，宽高同比缩小。<br>(0,3]，即右边的1，2，3页，首先x都偏移到了正中间，且宽高都有缩放，y向上偏移还与缩放比有关，这里第三页，滑动时进来的，从0到1的透明度变化，小于3的透明度都是1，都显示出来了的。<br>(3,INF)，即右边4及其以后的页，看不到，直接不管或者透明度为0即可。</p>
+<p>其实这个到最后就是使用的和动画有关的东西，变化的情况都告诉了，就是一个函数关系而已，这里就不去仔细分析怎么得出来的了，代码是最好的老师，所以这里就直接上代码。还有一点就是画图太不熟悉。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public class CardTransformer implements ViewPager.PageTransformer &#123;</span><br><span class="line">    private static final float MIN_SCALE = 0.9f;</span><br><span class="line"></span><br><span class="line">    private static final int PAGE_OFFSET = 40;</span><br><span class="line"></span><br><span class="line">    @SuppressLint(&quot;NewApi&quot;)</span><br><span class="line">    @Override</span><br><span class="line">    public void transformPage(View view, float position) &#123;</span><br><span class="line">        //position从左往右滑时，根据缓存了多少页，每一页的变化都是currPos到currPos+1；反之则为currPos到currPos-1；所以根据pos的大小可以控制当前页的位置，</span><br><span class="line">        //例如下边改变translationX，让后几页一样显示到当前页，当然这里让它能被看到，</span><br><span class="line">        //再调整ViewPager的宽高来控制协作控制其位置</span><br><span class="line">        int pageWidth = view.getWidth();</span><br><span class="line">        int pageHeight = view.getHeight();</span><br><span class="line">        float scaleFactor;</span><br><span class="line">        if (position &lt; -1) &#123; // [-Infinity,-1)</span><br><span class="line">            view.setAlpha(0);</span><br><span class="line">        &#125; else if (position &lt;= 0) &#123;</span><br><span class="line">            view.setAlpha(1 + position);</span><br><span class="line">            scaleFactor = MIN_SCALE + (1 - MIN_SCALE)</span><br><span class="line">                    * (1 - Math.abs(position));</span><br><span class="line">            view.setScaleX(scaleFactor);</span><br><span class="line">            view.setScaleY(scaleFactor);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            view.setAlpha(1 + position);</span><br><span class="line">            if (position &lt;= 3) &#123;</span><br><span class="line">                if (position &lt;= 2) &#123;</span><br><span class="line">                    view.setAlpha(1);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    view.setAlpha(1 - (position - 2));</span><br><span class="line">                &#125;</span><br><span class="line">                view.setTranslationX(pageWidth * -position);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                view.setAlpha(0);</span><br><span class="line">            &#125;</span><br><span class="line">            scaleFactor = MIN_SCALE + (1 - MIN_SCALE)</span><br><span class="line">                    * (1 - Math.abs(position));</span><br><span class="line">            view.setScaleX(scaleFactor);</span><br><span class="line">            view.setScaleY(scaleFactor);</span><br><span class="line">            view.setTranslationY(-position * PAGE_OFFSET - (pageHeight - pageHeight * scaleFactor) / 2);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就可以了。</p>
+<p><strong><em>注：其实举了这两个例子，为的就是想要说明一点postion可以代表ViewPager的每一页，可以自己去操控他，唯一需要配合使用的就是一屏多页和mOffscreenPageLimit参数，来控制在显示的时候是否能被加载并且看见。</em></strong></p>
+<h2 id="OnPageChangeListener方法的参数"><a href="#OnPageChangeListener方法的参数" class="headerlink" title="OnPageChangeListener方法的参数"></a>OnPageChangeListener方法的参数</h2><p>使用过ViewPager的朋友应该都知道，想要监听ViewPager的滚动情况，我们都可以使用设置这个监听去实现，而实现它需要实现他的三个方法：</p>
+<ul>
+<li>onPageSelected(int position)</li>
+<li>onPageScrollStateChanged(int state)</li>
+<li>onPageScrolled(int position, float positionOffset, int positionOffsetPixels)</li>
+</ul>
+<p>第一个用的应该是最多的，就是某一页被确定选中的时候，被回调，注意我的措辞，被确定选中，而不是直接说选中，即意味如果滑了一大半，且方向是滑了一大半的方向，那么虽然还在滑动，但是这个方法就会被回调。大家可以自己验证一下，我自己通过打log发现的，去看源码之后发现确实是这样这样，在手指拿起的时候就会去分发这个被选中的方法。</p>
+<p>第二个是，滑动状态改变的时候回调，有三种状态：</p>
+<ul>
+<li>SCROLL_STATE_IDLE</li>
+<li><p>SCROLL_STATE_DRAGGING</p>
+</li>
+<li><p>SCROLL_STATE_SETTLING</p>
+</li>
+</ul>
+<p>依次表示，滑动结束，手指拖着滑动中，手指离开后滑动，这就包含了滑动的所有阶段。</p>
+<p>第三个，也是在监听滚动变化情况的时候用的最多的一个方法，这里有三个参数，</p>
+<ul>
+<li>position：表示变化趋势，滑动完成后如果变大了，那么就是往左滑，反之亦然；在滑动过程中，如果往左滑，position是不变的，直到滑动结束变为1；往右滑，postion是比滑动之前的当前页小1直到结束。</li>
+<li>positionOffset：这个就厉害了，它从小到大就是往左滑（0，1），反之往右滑（1，0），注意到没有0和1的区间都是开区间，这是因为不管是0到1还是1到0都是无限趋近于1结束或开始，而0是在滑动结束之后都会变成0。</li>
+<li>positionOffsetPixels：这个就和positionOffset变化情况一致，只不过它不再是0到1的变化，而是0到Pager宽度的变化情况了。</li>
+</ul>
+<p>到这里这一部分的概念和含义都介绍完了，下边我再介绍一下onPageScrolled在实际运用中的技巧，其中主要是postion和positionOffset的应用。</p>
+<p>在这个方法中，position和position+1分别代表左边的View和右边的View，这一点很神奇，捋一捋之后发现果然是这样，可参照前边position的介绍；而positionOffset是（0，1）的变化，这样就方便我们做变化效果了。这里举个例子，因为要实现一屏多页，那么如果想要很好的实现背景颜色的渐变，那么目前最好的方法我认为就是通过在这个方法中处理。</p>
+<p>这里先上个效果，因为代码实在太简单：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3157525-f4fdb367aaa16d8b.gif?imageMogr2/auto-orient/strip" alt="pager_5.gif"></p>
+<p>由于是模拟器录制的，然后mp4转gif总感觉不大理想，大家将就看看吧，就是有个渐变的效果，直接上关键代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) &#123;</span><br><span class="line">    int color = mItems.get(position % mItems.size());</span><br><span class="line">    if (positionOffset &gt; 0) &#123;</span><br><span class="line">        color = Utils.getColor(positionOffset, mItems.get(position % mItems.size()),</span><br><span class="line">                mItems.get((position+1) % mItems.size()));</span><br><span class="line">    &#125;</span><br><span class="line">    mRoot.setBackgroundColor(color);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 根据fraction获取颜色，实现渐变</span><br><span class="line"> */</span><br><span class="line">public static int getColor(float fraction, Object startColor, Object endColor) &#123;</span><br><span class="line">    int startInt = (Integer) startColor;</span><br><span class="line">    int startA = (startInt &gt;&gt; 24) &amp; 0xff;</span><br><span class="line">    int startR = (startInt &gt;&gt; 16) &amp; 0xff;</span><br><span class="line">    int startG = (startInt &gt;&gt; 8) &amp; 0xff;</span><br><span class="line">    int startB = startInt &amp; 0xff;</span><br><span class="line">    int endInt = (Integer) endColor;</span><br><span class="line">    int endA = (endInt &gt;&gt; 24) &amp; 0xff;</span><br><span class="line">    int endR = (endInt &gt;&gt; 16) &amp; 0xff;</span><br><span class="line">    int endG = (endInt &gt;&gt; 8) &amp; 0xff;</span><br><span class="line">    int endB = endInt &amp; 0xff;</span><br><span class="line">    return (int) ((startA + (int) (fraction * (endA - startA))) &lt;&lt; 24) |</span><br><span class="line">            (int) ((startR + (int) (fraction * (endR - startR))) &lt;&lt; 16) |</span><br><span class="line">            (int) ((startG + (int) (fraction * (endG - startG))) &lt;&lt; 8) |</span><br><span class="line">            (int) ((startB + (int) (fraction * (endB - startB))));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一个方法没啥好解释的，就是保证在切换的时候背景颜色从当前页面的背景颜色变化到下一页的颜色，有可能是上一页也有可能是下一页，所以这里的postion和position+1就体现出高级的用处来了，第二个方法，不是我自己写的，我是从Android的颜色变换的估值器ArgbEvaluator中拿过来的。就是一个根据变化情况，去一个开始颜色到结束颜色的其中一个比例值（ARGB），其实去掉位运算之后就是一个直线的一元一次方程而已。</p>
+<p>到这里，这篇想说的内容都写完了，若有不对的地方，请指正，最后奉上源码，其中有的地方注释掉了，保留的这版代码是最后效果的代码，但是我相信看完这一篇之后你一定知道怎么还原每个部分的代码。</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/arvinljw/ViewPagerTransDemo" target="_blank" rel="noopener">ViewPagerDemo</a></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -458,19 +316,131 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2017/06/05/Android之ViewPager使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/10/10/Android动态更换桌面图标/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Android动态更换桌面图标
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/04/10/Android代码混淆/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android代码混淆</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://arvinljw.github.io/2017/06/05/Android之ViewPager使用/",
+  owner: 'arvinljw',
+  repo: 'arvinljw.github.io',
+  oauth: {
+    client_id: '173013408c3102aeca94',
+    client_secret: '0e42e5ac34a4333d544cd23cf0010b4ea4e25123',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -493,9 +463,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Tag: Android | arvinljwBlog</title>
+  <title>Android开源之SocialHelper | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android、Python等学习总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="arvinljwBlog">
-<meta property="og:url" content="https://arvinljw.github.io/tags/Android/index.html">
+  <meta name="description" content="目前几乎所有app都包含了第三方的登录以及分享功能，之前大多都使用ShareSDK或者其他SDK来实现，但是有些情况不希望通过第三方的sdk来间接集成，所以这个组件就有了用武之地。 这个组件在demo中是没有包含相关调用的代码的只有一些配置和使用的东西，因为应用的申请实在麻烦，但是已经在项目中测试通过了，所以可以放心使用。">
+<meta name="keywords" content="Android,开源库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android开源之SocialHelper">
+<meta property="og:url" content="https://arvinljw.github.io/2017/12/01/Android开源之SocialHelper/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="Android、Python等学习总结">
+<meta property="og:description" content="目前几乎所有app都包含了第三方的登录以及分享功能，之前大多都使用ShareSDK或者其他SDK来实现，但是有些情况不希望通过第三方的sdk来间接集成，所以这个组件就有了用武之地。 这个组件在demo中是没有包含相关调用的代码的只有一些配置和使用的东西，因为应用的申请实在麻烦，但是已经在项目中测试通过了，所以可以放心使用。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-08T02:43:57.195Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arvinljwBlog">
-<meta name="twitter:description" content="Android、Python等学习总结">
+<meta name="twitter:title" content="Android开源之SocialHelper">
+<meta name="twitter:description" content="目前几乎所有app都包含了第三方的登录以及分享功能，之前大多都使用ShareSDK或者其他SDK来实现，但是有些情况不希望通过第三方的sdk来间接集成，所以这个组件就有了用武之地。 这个组件在demo中是没有包含相关调用的代码的只有一些配置和使用的东西，因为应用的申请实在麻烦，但是已经在项目中测试通过了，所以可以放心使用。">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -171,78 +173,136 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Android开源之SocialHelper" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/28/Android源码分析之PhotoView/" class="archive-article-date">
-  	<time datetime="2017-12-28T09:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/28/Android源码分析之PhotoView/">Android源码分析之PhotoView</a>
+    <h1 class="article-title" itemprop="name">
+      Android开源之SocialHelper
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/01/Android开源之SocialHelper/" class="archive-article-date">
+        
+        <a href="/2017/12/01/Android开源之SocialHelper/" class="archive-article-date">
   	<time datetime="2017-12-01T06:11:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/01/Android开源之SocialHelper/">Android开源之SocialHelper</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>目前几乎所有app都包含了第三方的登录以及分享功能，之前大多都使用ShareSDK或者其他SDK来实现，但是有些情况不希望通过第三方的sdk来间接集成，所以这个组件就有了用武之地。</p>
+<p>这个组件在demo中是没有包含相关调用的代码的只有一些配置和使用的东西，因为应用的申请实在麻烦，但是已经在项目中测试通过了，所以可以放心使用。</p>
+<a id="more"></a>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>便捷实现第三方登录和分享及其回调</li>
+<li>了解第三方登录或分享的实现流程</li>
+</ul>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>包含了：如何引用、使用以及混淆</p>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>1、在根目录的build.gradle中加入如下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        ...</span><br><span class="line">        maven &#123; url &apos;https://jitpack.io&apos; &#125;</span><br><span class="line">        maven &#123; url &quot;https://dl.bintray.com/thelasterstar/maven/&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、在要是用的module中增加如下引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    compile &apos;com.github.arvinljw:SocialHelper:v1.0.7&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>注：如果在该module中使用了v7包，那么可使用exclude命令移除本库的引用避免重复，gson也是一样，大体方法如下</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">compile (&apos;com.github.arvinljw:SocialHelper:v1.0.7&apos;)&#123;</span><br><span class="line">    exclude group: &apos;com.android.support&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p><strong>1、相应配置</strong></p>
+<p>AndroidManifest.xml配置</p>
+<p>添加权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--微信权限，微博权限，qq只需前两个--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot;/&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>在application下添加Activity</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--qq配置开始--&gt;</span><br><span class="line">&lt;activity</span><br><span class="line">    android:name=&quot;com.tencent.tauth.AuthActivity&quot;</span><br><span class="line">    android:launchMode=&quot;singleTask&quot;</span><br><span class="line">    android:noHistory=&quot;true&quot;&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=&quot;android.intent.action.VIEW&quot;/&gt;</span><br><span class="line">        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;</span><br><span class="line">        &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot;/&gt;</span><br><span class="line">        &lt;data android:scheme=&quot;tencentqqAppId&quot;/&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br><span class="line">&lt;activity</span><br><span class="line">    android:name=&quot;com.tencent.connect.common.AssistActivity&quot;</span><br><span class="line">    android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;</span><br><span class="line">    android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot;/&gt;</span><br><span class="line">&lt;!--qq配置结束--&gt;</span><br><span class="line">&lt;!--微信配置开始--&gt;</span><br><span class="line">&lt;activity</span><br><span class="line">    android:name=&quot;.wxapi.WXEntryActivity&quot;</span><br><span class="line">    android:exported=&quot;true&quot;</span><br><span class="line">    android:label=&quot;@string/app_name&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;!--微信配置结束--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--微博不需要--&gt;</span><br></pre></td></tr></table></figure>
+<p><em>注：其中需要注意的是，qq配置中<data android:scheme="tencentqqAppId"><br>qqAppId换成您申请的qqAppId即可</data></em></p>
+<p>微信还需要在packageName.wxapi的包下创建WXEntryActivity，具体实现可在<a href="https://github.com/arvinljw/SocialHelper/blob/master/app/src/main/java/net/arvin/socialhelper/sample/wxapi/WXEntryActivity.java" target="_blank" rel="noopener">这里查看</a></p>
+<p>拷贝过去即可，注意路径，其中主要的处理是在其onResp的时候判断是登录还是分享做出相应的处理，通知本库触发回调</p>
+<p><strong>2、获取实例</strong></p>
+<p>首先采用外观模式，暴露出来一个SocialHelper，可以通过构建者模式获取实例，调用相关方法，配置回调。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">socialHelper = new SocialHelper.Builder()</span><br><span class="line">        .setQqAppId(&quot;qqAppId&quot;)</span><br><span class="line">        .setWxAppId(&quot;wxAppId&quot;)</span><br><span class="line">        .setWxAppSecret(&quot;wxAppSecret&quot;)</span><br><span class="line">        .setWbAppId(&quot;wbAppKey&quot;)</span><br><span class="line">        .setWbRedirectUrl(&quot;wbRedirectUrl&quot;)</span><br><span class="line">        .build();</span><br></pre></td></tr></table></figure>
+<p><strong>3、调用相关方法</strong></p>
+<p>这里提供了QQ、微信和微博的相应的登录和分享方法</p>
+<ul>
+<li>public void loginQQ(Activity activity, SocialLoginCallback callback)</li>
+<li>public void loginWX(Activity activity, SocialLoginCallback callback)</li>
+<li>public void loginWB(Activity activity, SocialLoginCallback callback)</li>
+<li>public void shareQQ(Activity activity, ShareEntity shareInfo, SocialShareCallback callback)</li>
+<li>public void shareWX(Activity activity, ShareEntity shareInfo, SocialShareCallback callback)</li>
+<li>public void shareWB(Activity activity, ShareEntity shareInfo, SocialShareCallback callback)</li>
+</ul>
+<p><em>注：分享方法的参数顺序和老版本有一点变化，老版本的被遗弃了，计划下个版本删除</em></p>
+<p>这个其实通过名字就能知道是什么意思，就不解释了，需要解释的是参数：</p>
+<p><strong>a、传入的Activity</strong></p>
+<p>主要是为了回调回来都在当前Activity中处理回调事情，避免在Fragment中去处理，这样也能减少一些工作</p>
+<p><em>注：当然遇到在Fragment中调用登录或者分享的时候，请使用您最熟悉的方式回调到其Activity中处理相关操作</em></p>
+<p><strong>b、传入的回调</strong></p>
+<p>这里回调也分为了两种登录回调和分享回调</p>
+<p>回调接口如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public interface SocialCallback &#123;</span><br><span class="line">    void socialError(String msg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public interface SocialLoginCallback extends SocialCallback&#123;</span><br><span class="line">    void loginSuccess(ThirdInfoEntity info);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public interface SocialShareCallback extends SocialCallback&#123;</span><br><span class="line">    void shareSuccess();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>登录和分享回调失败都会有一个信息返回；</p>
+<p>登录成功会将封装的第三方信息返回，包含了常用的昵称，性别，头像，登录平台，更多信息也能在其中找到，详细的含义在Lib中有详细的注释；</p>
+<p>分享成功就只有一个回调，便于提示。</p>
+<p><strong>c、ShareEntity</strong></p>
+<p>这个参数是分享的重点，对于QQ、微信和微博对应着QQShareEntity、WXShareEntity以及WBShareEntity</p>
+<p>都可以通过其相应的静态方法创建相应分享类型</p>
+<ul>
+<li><p>QQShareEntity</p>
+<ul>
+<li>createImageTextInfo 图文信息，网页信息</li>
+<li>createImageInfo 纯图片信息</li>
+<li>createMusicInfo 音乐信息</li>
+<li>createAppInfo 应用信息</li>
+<li>createImageTextInfoToQZone 图文信息到QQ空间</li>
+</ul>
+</li>
+<li><p>WXShareEntity</p>
+<ul>
+<li>createTextInfo 文本信息</li>
+<li>createImageInfo 纯图片信息</li>
+<li>createMusicInfo 音乐信息</li>
+<li>createVideoInfo 视频信息</li>
+<li>createWebPageInfo 网页信息</li>
+</ul>
+</li>
+<li><p>WBShareEntity</p>
+<ul>
+<li>createTextInfo 纯文本信息</li>
+<li>createImageTextInfo 图文信息</li>
+<li>createMultiImageInfo 多图信息</li>
+<li>createVideoInfo 视频信息</li>
+<li>createWebInfo 网页信息</li>
+</ul>
+</li>
+</ul>
+<p>具体详细的参数以及注释在相应类中都有明确的注释，这里就不过多的展开了；其中有ParamsRequired注解的参数代表必传。</p>
+<p>注意，有些不必传的参数，不传虽然也能分享成功，但是有可能会影响分享出去的样式，请自行调试。</p>
+<p><strong>4、回调配置</strong></p>
+<p>在调用的Activity中配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//用处：qq登录和分享回调，以及微博登录回调</span><br><span class="line">@Override</span><br><span class="line">protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</span><br><span class="line">    super.onActivityResult(requestCode, resultCode, data);</span><br><span class="line">    if (data != null &amp;&amp; socialHelper != null) &#123;//qq分享如果选择留在qq，通过home键退出，再进入app则不会有回调</span><br><span class="line">        socialHelper.onActivityResult(requestCode, resultCode, data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//用处：微博分享回调</span><br><span class="line">@Override</span><br><span class="line">protected void onNewIntent(Intent intent) &#123;</span><br><span class="line">    super.onNewIntent(intent);</span><br><span class="line">    if (socialHelper != null) &#123;</span><br><span class="line">        socialHelper.onNewIntent(intent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至于微信的回调配置，在一开始的时候说的WXEntryActivity的onResp中的处理就是了。</p>
+<p>至此使用方式就基本完毕，算下来也就这么四部配置，就能愉快的使用了，当然前提是相应的app申请已经成功。</p>
+<p><strong>其中对于SocialHelper的实例，可以像Demo中一样使用一个工具简单封装成单例来使用。</strong></p>
+<h3 id="Release-Log"><a href="#Release-Log" class="headerlink" title="Release Log"></a>Release Log</h3><p><strong>v1.0.7:</strong></p>
+<ul>
+<li>更新微信，qq，微博sdk版本</li>
+<li>调整SocialHelper中shareXX相关方法的参数顺序，老的方法Deprecated了，下个版本移除</li>
+</ul>
+<p><strong>v1.0.5:</strong></p>
+<ul>
+<li>第一个稳定版本，包含微信，qq，微博登录和分享</li>
+</ul>
+<h4 id="混淆"><a href="#混淆" class="headerlink" title="混淆"></a>混淆</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#qq</span><br><span class="line">-keep class com.tencent.**&#123;*;&#125;</span><br><span class="line">#微博</span><br><span class="line">-keep class com.sina.weibo.sdk.** &#123; *; &#125;</span><br><span class="line">#微信</span><br><span class="line">-keep class com.tencent.mm.opensdk.** &#123; *; &#125;</span><br><span class="line">-keep class packageName.wxapi.** &#123; *; &#125;</span><br><span class="line">#Gson</span><br><span class="line">-keep class com.google.gson.** &#123;*;&#125;</span><br><span class="line">-keep class com.google.**&#123;*;&#125;</span><br><span class="line">-keep class sun.misc.Unsafe &#123; *; &#125;</span><br><span class="line">-keep class com.google.gson.stream.** &#123; *; &#125;</span><br><span class="line">-keep class com.google.gson.examples.android.model.** &#123; *; &#125;</span><br><span class="line">#Socialhelper</span><br><span class="line">-keep class net.arvin.socialhelper.**&#123;*;&#125;</span><br></pre></td></tr></table></figure>
+<p><em>注：微信的packageName换成自己的包名</em></p>
+<h3 id="三方文档链接"><a href="#三方文档链接" class="headerlink" title="三方文档链接"></a>三方文档链接</h3><p><a href="http://wiki.open.qq.com/wiki/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E6%8E%A5%E5%85%A5%E6%96%B0%E6%89%8B%E6%8C%87%E5%BC%95" target="_blank" rel="noopener">QQ平台</a></p>
+<p><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=1417751808&amp;token=&amp;lang=zh_CN" target="_blank" rel="noopener">微信平台</a></p>
+<p><a href="http://open.weibo.com/wiki/Sdk/android" target="_blank" rel="noopener">微博平台</a></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -258,219 +318,131 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/Android动态更换桌面图标/" class="archive-article-date">
-  	<time datetime="2017-10-10T02:38:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/Android动态更换桌面图标/">Android动态更换桌面图标</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/05/Android之ViewPager使用/" class="archive-article-date">
-  	<time datetime="2017-06-05T05:05:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/05/Android之ViewPager使用/">Android之ViewPager使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/10/Android代码混淆/" class="archive-article-date">
-  	<time datetime="2017-04-10T03:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/10/Android代码混淆/">Android代码混淆</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/20/Android消息机制/" class="archive-article-date">
-  	<time datetime="2017-02-20T06:40:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/20/Android消息机制/">Android消息机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/19/Android之Activity总结/" class="archive-article-date">
-  	<time datetime="2016-11-19T06:50:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/19/Android之Activity总结/">Android之Activity总结</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2017/12/01/Android开源之SocialHelper/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/12/28/Android源码分析之PhotoView/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Android源码分析之PhotoView
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/10/10/Android动态更换桌面图标/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android动态更换桌面图标</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://arvinljw.github.io/2017/12/01/Android开源之SocialHelper/",
+  owner: 'arvinljw',
+  repo: 'arvinljw.github.io',
+  oauth: {
+    client_id: '173013408c3102aeca94',
+    client_secret: '0e42e5ac34a4333d544cd23cf0010b4ea4e25123',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -493,9 +465,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
