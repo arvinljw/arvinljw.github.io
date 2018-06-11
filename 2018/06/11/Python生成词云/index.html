@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Python学习总结 | arvinljwBlog</title>
+  <title>Python生成词云 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第三篇">
+  <meta name="description" content="词云，从刚开始学习Python的时候就看到过，觉得特别高大上，因为它能很直观的分析出，什么词语出现的频率高，表现方式也很友好。想着我也一定要自己做出来～后来没想到实现词云的方法居然挺简单的，开源真是特别好，真是完全符合Python的优雅简洁呀，接下来直入正题～">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python学习总结">
-<meta property="og:url" content="https://arvinljw.github.io/2018/05/30/Python学习总结/index.html">
+<meta property="og:title" content="Python生成词云">
+<meta property="og:url" content="https://arvinljw.github.io/2018/06/11/Python生成词云/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="第三篇">
+<meta property="og:description" content="词云，从刚开始学习Python的时候就看到过，觉得特别高大上，因为它能很直观的分析出，什么词语出现的频率高，表现方式也很友好。想着我也一定要自己做出来～后来没想到实现词云的方法居然挺简单的，开源真是特别好，真是完全符合Python的优雅简洁呀，接下来直入正题～">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-30T08:39:40.664Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-56bfe7d7b7ae2ea3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/150">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-1866123c6284716a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/150">
+<meta property="og:updated_time" content="2018-06-11T12:32:51.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习总结">
-<meta name="twitter:description" content="第三篇">
+<meta name="twitter:title" content="Python生成词云">
+<meta name="twitter:description" content="词云，从刚开始学习Python的时候就看到过，觉得特别高大上，因为它能很直观的分析出，什么词语出现的频率高，表现方式也很友好。想着我也一定要自己做出来～后来没想到实现词云的方法居然挺简单的，开源真是特别好，真是完全符合Python的优雅简洁呀，接下来直入正题～">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3157525-56bfe7d7b7ae2ea3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/150">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -169,28 +172,52 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Python学习总结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Python生成词云" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Python学习总结
+      Python生成词云
     </h1>
   
 
         
-        <a href="/2018/05/30/Python学习总结/" class="archive-article-date">
-  	<time datetime="2018-05-30T03:37:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
+        <a href="/2018/06/11/Python生成词云/" class="archive-article-date">
+  	<time datetime="2018-06-11T11:41:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第三篇</p>
+        <p>词云，从刚开始学习Python的时候就看到过，觉得特别高大上，因为它能很直观的分析出，什么词语出现的频率高，表现方式也很友好。想着我也一定要自己做出来～后来没想到实现词云的方法居然挺简单的，开源真是特别好，真是完全符合Python的优雅简洁呀，接下来直入正题～</p>
+<a id="more"></a>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我们用到的第三方包是<strong>wordcloud</strong>，我是在pycharm中编写的，直接使用pip安装即可:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install wordcloud</span><br></pre></td></tr></table></figure>
+<p>在安装wordcloud过程中发现其实还安装了matplotlib、numpy、pillow等一系列其他包。然后，对于词我们要进行拆分，使用的是<strong>jieba</strong>，安装也很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jieba</span><br></pre></td></tr></table></figure>
+<p>安装的内容就基本这些。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>废话不多说直接先看看结果：</p>
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://upload-images.jianshu.io/upload_images/3157525-56bfe7d7b7ae2ea3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/150"></div>
 
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://upload-images.jianshu.io/upload_images/3157525-1866123c6284716a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/150"></div>
+
+<div style="float:none;clear:both;">
+
+<p>对于引入的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from wordcloud import WordCloud</span><br><span class="line">import jieba</span><br><span class="line">from scipy.misc import imread</span><br><span class="line">from PIL import Image</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br></pre></td></tr></table></figure>
+<h3 id="获取词的内容"><a href="#获取词的内容" class="headerlink" title="获取词的内容"></a>获取词的内容</h3><p>一般可以通过爬取某个网站获取数据，也可以更简单一点，拷贝一篇文章保存在本地来分析。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(&apos;test.txt&apos;, &apos;r&apos;, encoding=&quot;utf-8&quot;) as f:</span><br><span class="line">    text = &quot; &quot;.join(jieba.cut(f.read()))</span><br></pre></td></tr></table></figure>
+<p>这里的含义就是打开文件，使用jieba分词，然后通过空格来分割，就得到了最后传递给wordcloud的内容。</p>
+<h3 id="获取遮罩图"><a href="#获取遮罩图" class="headerlink" title="获取遮罩图"></a>获取遮罩图</h3><p>官方的方式，通过numpy去获取：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alice_mask = np.array(Image.open(&quot;alice_mask.png&quot;))</span><br></pre></td></tr></table></figure>
+<p>这样就获取到了遮罩图，稍后传入wordcloud中即可。</p>
+<h3 id="显示词云"><a href="#显示词云" class="headerlink" title="显示词云"></a>显示词云</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wordCloud = WordCloud(font_path=&apos;msyh.ttf&apos;,</span><br><span class="line">                      background_color=&apos;white&apos;,</span><br><span class="line">                      max_words=500,</span><br><span class="line">                      max_font_size=80,</span><br><span class="line">                      random_state=40,</span><br><span class="line">                      mask=alice_mask)</span><br><span class="line">wordcloud.generate(text)</span><br><span class="line">plt.imshow(wordCloud, interpolation=&apos;bilinear&apos;)</span><br><span class="line">plt.axis(&quot;off&quot;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>先创建wordcloud，再使用plt显示。如果包含中文内容，需要设置font_path为中文的字体，然后mask为传入的遮罩图。词云的内容设置则通过generate即可。</p>
+<p>这样一来就大功告成了。</p>
+</div>
       
 
       
@@ -259,7 +286,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/05/30/Python学习总结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/06/11/Python生成词云/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -273,18 +300,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/06/03/Java之对象的创建和销毁/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java之对象的创建和销毁
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/30/Java之一切皆对象/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java之一切皆对象</div>
+    <a href="/2018/06/06/Java之复用类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java之复用类</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -311,7 +329,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-number">2.</span> <span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取词的内容"><span class="toc-number">2.1.</span> <span class="toc-text">获取词的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取遮罩图"><span class="toc-number">2.2.</span> <span class="toc-text">获取遮罩图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示词云"><span class="toc-number">2.3.</span> <span class="toc-text">显示词云</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -336,7 +354,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://arvinljw.github.io/2018/05/30/Python学习总结/",
+  id: "https://arvinljw.github.io/2018/06/11/Python生成词云/",
   owner: 'arvinljw',
   repo: 'arvinljw.github.io',
   oauth: {
@@ -538,7 +556,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">热爱Android开发&lt;br&gt;&lt;br&gt;学习Python中...</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">热爱Android开发&lt;br&gt;学习Python中...&lt;br&gt;&lt;br&gt;有问题可以给我发邮件～</div>
   	  	
     	</section>
     
