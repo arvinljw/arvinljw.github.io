@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="arvinljwBlog">
 <meta property="og:description" content="本文是读《Thinking in Java》第二章一切都是对象的总结。文中说，学习不同的语言就会发现不同的世界，而我认为还是同一个世界，只是不同的思想罢了。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-01T09:30:18.113Z">
+<meta property="og:updated_time" content="2018-06-11T09:18:06.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java之一切皆对象">
 <meta name="twitter:description" content="本文是读《Thinking in Java》第二章一切都是对象的总结。文中说，学习不同的语言就会发现不同的世界，而我认为还是同一个世界，只是不同的思想罢了。">
@@ -98,9 +98,7 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/arvinljw" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/8fcc3372beb7" title="jianshu"><i class="icon-jianshu"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="mail" target="_blank" href="mailto:arvinljw@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -141,9 +139,7 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/arvinljw" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="jianshu" target="_blank" href="https://www.jianshu.com/u/8fcc3372beb7" title="jianshu"><i class="icon-jianshu"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="mail" target="_blank" href="mailto:arvinljw@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -200,7 +196,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">《百度百科》的解释：</span><br><span class="line">对象，常有两层意思，指行动或思考时作为目标的事物或特指恋爱的对方等含义。</span><br></pre></td></tr></table></figure>
 <p>是的，显然我们说的应该是第一层含义，是指<strong>行动或思考时的目标事物</strong>。而对于这种有前提的目标来说，我们往往只会考虑该目标的某些东西，例如我们吃饭用的桌子，我们知道它是什么做的（材质），它是用来放东西的（作用），这当然就正好对应到对象中的字段和方法。而抽象出来的这个对象我们往往都不能列举完现实中的所有属性和方法，只提取有用的，能用到的东西即可，这就是需要我们去思考的东西，哪些东西需要，哪些不需要。</p>
 <h2 id="从何而来又去向何方"><a href="#从何而来又去向何方" class="headerlink" title="从何而来又去向何方"></a>从何而来又去向何方</h2><p>从定义中不难发现，对象是我们行动或思考时就存在的，只是我们没有用它而已，但这只是抽象上的说法，我们需要的是实实在在的代码逻辑，计算机能懂的东西。对象是行动或思考时的东西，而这样的东西有很多相似的，我们就把这些相似的东西称为类，相当于模板，就能让计算机根据模板快速的创建好这样的对象。</p>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>作为一个模板，它同样包含字段和方法，字段的类型可以是基本数据类型或者自定义类型。每个类都有自己的唯一路径，即包名+类名，若这个路径与系统提供的类完全相同，则会出错，这就与类的加载有关，这里就不做赘述了。作为类及其字段和方法都有一个访问修饰符，方便控制让哪些可以调用。包括private、protected、public以及默认。还有其他关键字，以后会单独细说，例如static，final，volatile等。</p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>作为一个模板，它同样包含字段和方法，字段的类型可以是基本数据类型或者自定义类型。每个类都有自己的唯一路径，即包名+类名，若这个路径与系统提供的类完全相同，则会出错，这就与类的加载有关，这里就不做赘述了。作为类及其字段和方法都有一个访问修饰符，方便控制让哪些可以调用。包括private、protected、public以及默认。还有其他关键字，以后会单独细说，例如static，final，volatile等。</p>
 <p><strong>字段</strong></p>
 <p>其中基础类型的各个字段都有默认值，bool类型默认是false，char默认是’u0000’（null），其他基本类型都是默认为0，自定义或系统的类默认值都为null。</p>
 <p><strong>方法</strong></p>
@@ -210,11 +206,11 @@ var _hmt = _hmt || [];
 <li>存储</li>
 <li>销毁</li>
 </ul>
-<h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><p>对象的创建就像出生，常常通过一个new的关键字加上类的构造函数。例如：</p>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>对象的创建就像出生，常常通过一个new的关键字加上类的构造函数。例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String str = new String(&quot;abc&quot;);</span><br></pre></td></tr></table></figure>
 <p>这一句代码就创建了一个”abc”的字符串，并赋值给了str这个变量，str就是对象的引用，具有所有字符串这种类的所有字段和方法，只是有的字段和方法不能直接使用而已。</p>
-<h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><p>对于对象都是存储在虚拟机的java堆上的，这个String对象也不例外，而str这个对象的引用是存在java虚拟机栈的局部变量表中，对于”abc”这个变量本身又存在字符串常量池中。</p>
-<h4 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h4><p>不好意思，你没有销毁对象的权利，因为java提供了一套垃圾回收机制，在回收时只要没有被引用的对象都会被回收，即销毁。而什么时候回收，怎么回收这些是java虚拟机的内容，就不在这里展开了。</p>
+<h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>对于对象都是存储在虚拟机的java堆上的，这个String对象也不例外，而str这个对象的引用是存在java虚拟机栈的局部变量表中，对于”abc”这个变量本身又存在字符串常量池中。</p>
+<h3 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h3><p>不好意思，你没有销毁对象的权利，因为java提供了一套垃圾回收机制，在回收时只要没有被引用的对象都会被回收，即销毁。而什么时候回收，怎么回收这些是java虚拟机的内容，就不在这里展开了。</p>
 <h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>内容不多，总感觉有点虎头蛇尾，一是对象这一个概念要引出的东西太多，他能把这本书的所有内容都引出来；二是水平有限，只能列举出一些我理解的东西，而各个部分细致的也会在之后慢慢介绍。</p>
 
       
@@ -334,6 +330,19 @@ var _hmt = _hmt || [];
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是对象"><span class="toc-number">1.</span> <span class="toc-text">什么是对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从何而来又去向何方"><span class="toc-number">2.</span> <span class="toc-text">从何而来又去向何方</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">3.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">3.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储"><span class="toc-number">3.2.</span> <span class="toc-text">存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#销毁"><span class="toc-number">3.3.</span> <span class="toc-text">销毁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结束语"><span class="toc-number">4.</span> <span class="toc-text">结束语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -394,7 +403,7 @@ gitment.render('gitment-ctn')
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -460,7 +469,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">开源库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,10 +486,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《Thinking in Java》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码分析</a>
               </li>
              
               <li class="article-tag-list-item">
