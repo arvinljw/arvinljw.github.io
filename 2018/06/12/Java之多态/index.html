@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Archives: 2016 | arvinljwBlog</title>
+  <title>Java之多态 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android、Python等学习总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="arvinljwBlog">
-<meta property="og:url" content="https://arvinljw.github.io/archives/2016/index.html">
+  <meta name="description" content="Java语言的三大特征正是封装、继承以及多态，在前边总结了一切皆对象和复用类两篇，正是封装以及继承。三者的作用如下：  封装：通过合并特征和行为而创建新的数据类型 继承：复用已有接口，将接口与实现分离 多态：消除类型之间的耦合">
+<meta name="keywords" content="Java,《Thinking in Java》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java之多态">
+<meta property="og:url" content="https://arvinljw.github.io/2018/06/12/Java之多态/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="Android、Python等学习总结">
+<meta property="og:description" content="Java语言的三大特征正是封装、继承以及多态，在前边总结了一切皆对象和复用类两篇，正是封装以及继承。三者的作用如下：  封装：通过合并特征和行为而创建新的数据类型 继承：复用已有接口，将接口与实现分离 多态：消除类型之间的耦合">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-12T06:54:13.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arvinljwBlog">
-<meta name="twitter:description" content="Android、Python等学习总结">
+<meta name="twitter:title" content="Java之多态">
+<meta name="twitter:description" content="Java语言的三大特征正是封装、继承以及多态，在前边总结了一切皆对象和复用类两篇，正是封装以及继承。三者的作用如下：  封装：通过合并特征和行为而创建新的数据类型 继承：复用已有接口，将接口与实现分离 多态：消除类型之间的耦合">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -167,60 +169,208 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java之多态" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/19/Android之Activity总结/" class="archive-article-date">
-  	<time datetime="2016-11-19T06:50:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/19/Android之Activity总结/">Android之Activity总结</a>
+    <h1 class="article-title" itemprop="name">
+      Java之多态
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/06/12/Java之多态/" class="archive-article-date">
+  	<time datetime="2018-06-12T02:42:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java语言的三大特征正是封装、继承以及多态，在前边总结了<a href="https://arvinljw.github.io/2018/05/30/Java之一切皆对象">一切皆对象</a>和<a href="https://arvinljw.github.io/2018/06/06/Java之复用类">复用类</a>两篇，正是封装以及继承。三者的作用如下：</p>
+<ul>
+<li>封装：通过合并特征和行为而创建新的数据类型</li>
+<li>继承：复用已有接口，将接口与实现分离</li>
+<li>多态：消除类型之间的耦合</li>
+</ul>
+<a id="more"></a>
+<h2 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h2><p>在复用类的一章中其实就有接触到向上转型，表示为对某个对象的引用视为对其父类的引用。而向上转型可能会缩小接口范围，但是至少也是父类接口的大小。正因为此，便可节省大量的重复性代码。例如书中的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public class Chapter8 &#123;</span><br><span class="line">    private static void tune(Instrument instrument) &#123;</span><br><span class="line">        instrument.play();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        tune(new Wind());</span><br><span class="line">        tune(new Stringed());</span><br><span class="line">        tune(new Brass());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Instrument &#123;</span><br><span class="line">        public void play() &#123;</span><br><span class="line">            print(&quot;Instrument.play()&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        void print(String msg) &#123;</span><br><span class="line">            System.out.println(msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Wind extends Instrument &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void play() &#123;</span><br><span class="line">            print(&quot;Wind.play()&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Stringed extends Instrument &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void play() &#123;</span><br><span class="line">            print(&quot;Stringed.play()&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Brass extends Instrument &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void play() &#123;</span><br><span class="line">            print(&quot;Brass.play()&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在调用tune方法时，如果不使用向上转型，那么传入的参数是什么类型就要写成什么类型，这里的乐器有三种就要重载三个tune方法（如下），而且每新增一种乐器就要重载一个新的tune方法，这样修改起来就会很麻烦，也容易出错。而这向上转型正是多态允许的，当然也是继承的一个作用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private static void tune(Wind wind) &#123;</span><br><span class="line">    wind.play();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private static void tune(Stringed stringed) &#123;</span><br><span class="line">    stringed.play();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private static void tune(Brass brass) &#123;</span><br><span class="line">    brass.play();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说到这里可能会好奇，这是怎么实现向上转型后，依旧能调用到正确的方法的呢？这正是接下来要说的方法调用绑定。</p>
+<h2 id="方法调用绑定"><a href="#方法调用绑定" class="headerlink" title="方法调用绑定"></a>方法调用绑定</h2><p>方法的绑定分为前期绑定和后期绑定。</p>
+<ul>
+<li>绑定：一个方法的调用和一个方法的主体关联的过程就叫绑定</li>
+<li>前期绑定：程序执行钱惊醒绑定</li>
+<li>后期绑定：在程序运行时更具对象类型进行绑定</li>
+</ul>
+<p>正是这个后期绑定为向上转型后依旧能正确调用方法主体提供了解决办法，在Java中<strong>除了static和final的方法外都是后期绑定</strong>。因为这些在继承中是不能够被重写的，所以也就有了将方法申明为final能提高一定效率的说法。<strong>但是建议使用final关键字是根据设计理念出发，而不是提高效率而言，因为这对程序本身提高的效率不是很大。</strong></p>
+<p>有了多态机制（向上转型-后期绑定），在程序设计的过程中就能更好的扩展，在父类中新增新的方法，也能在调用父类的接口中，不用修改就能照旧使用，并使用根据父类派生出来的子类。<strong>做到了将改变的事物与不变的事物相分离。</strong></p>
+<p>上文中说到除了static和final的方法外都是后期绑定，所以private的方法和static的域和方法都是无能被覆盖的，无法被重写，如果方法或字段名相同，那么就会容易让人混淆，所以最好采用不同的名字。</p>
+<h2 id="构造器与多态"><a href="#构造器与多态" class="headerlink" title="构造器与多态"></a>构造器与多态</h2><h3 id="初始化顺序"><a href="#初始化顺序" class="headerlink" title="初始化顺序"></a>初始化顺序</h3><p>在之前的文章中，我总结出了一个类的初始化过程中，各个位置的变量、静态变量以及构造器的调用顺序，也是需要在这章中理解的，顺序如下：</p>
+<p><strong>父类静态变量&gt;子类静态变量&gt;父类变量&gt;父类构造函数&gt;子类变量&gt;子类构造函数</strong></p>
+<p><em>同一个类中同一级别的调用顺序和代码顺序有关</em></p>
+<h3 id="为什么先初始化父类"><a href="#为什么先初始化父类" class="headerlink" title="为什么先初始化父类"></a>为什么先初始化父类</h3><p>子类被创建为什么要先调用父类的构造器呢？是因为子类只能访问父类的public和protected的字段和方法，而private的字段和方法无法直接访问，那么如果使用子类去初始化这个类，那么就会发现private的部分就无法被初始化，所以private的部分只能父类去初始化，这样才能保证在子类中要使用到父类的内容时，都是被初始化了的。</p>
+<p><em>注：这里的初始化并非只数据的初始化，更像是某个事物被创建，即使被创建后是null。就像某个事物不存在到存在的过程</em></p>
+<p>在父类的构造器中调用被重写的方法，若该方法中调用了子类的字段，则会导致，该字段还未被初始化，只有一个默认值。所以应该<strong>尽可能避免在构造器中调用能被重写的方法</strong>。</p>
+<p>还有一点，<strong>重写的方法有返回值，那么返回值的类型可以是父类方法返回类型的子类</strong>。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>多态，在设计过程中，核心就是使用继承的方式，而对于设计程序，应该更多考虑组合的形式，除非你确定这两个类的关系是”is-a”的关系而不是”is-like-a”。</p>
+<p>可以看到多态是在封装和继承的基础上存在的特性，这些特性便是程序设计的基石，只有多见识如何设计，多实践才能更好的用好这些特性，写出更好维护和扩展的代码。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《Thinking in Java》</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/06/12/Java之多态/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/06/11/Python生成词云/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python生成词云</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#向上转型"><span class="toc-number">1.</span> <span class="toc-text">向上转型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用绑定"><span class="toc-number">2.</span> <span class="toc-text">方法调用绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造器与多态"><span class="toc-number">3.</span> <span class="toc-text">构造器与多态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化顺序"><span class="toc-number">3.1.</span> <span class="toc-text">初始化顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么先初始化父类"><span class="toc-number">3.2.</span> <span class="toc-text">为什么先初始化父类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://arvinljw.github.io/2018/06/12/Java之多态/",
+  owner: 'arvinljw',
+  repo: 'arvinljw.github.io',
+  oauth: {
+    client_id: '173013408c3102aeca94',
+    client_secret: '0e42e5ac34a4333d544cd23cf0010b4ea4e25123',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -243,8 +393,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
