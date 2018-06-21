@@ -6,18 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>arvinljwBlog</title>
+  <title>Python抓取QQ音乐歌单并分析 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android、Python等学习总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="arvinljwBlog">
-<meta property="og:url" content="https://arvinljw.github.io/page/2/index.html">
+  <meta name="description" content="学了python也有一段时间了，对于爬虫，后端的框架也有一些了解，但是都是在学习的时候跟着别人写的，感觉都不是自己的知识一样。我去年就给网易云音乐提了一个建议，就是通过播放量或者一个受欢迎程度来排序，然而肯定是没有管我的，随着网易云音乐的版权问题，现在又开始使用QQ音乐了，当然它依然没有这个功能。所以就只有自己动手解决了～">
+<meta name="keywords" content="Python,Scrapy爬虫,数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python抓取QQ音乐歌单并分析">
+<meta property="og:url" content="https://arvinljw.github.io/2018/06/20/Python抓取QQ音乐歌单并分析/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="Android、Python等学习总结">
+<meta property="og:description" content="学了python也有一段时间了，对于爬虫，后端的框架也有一些了解，但是都是在学习的时候跟着别人写的，感觉都不是自己的知识一样。我去年就给网易云音乐提了一个建议，就是通过播放量或者一个受欢迎程度来排序，然而肯定是没有管我的，随着网易云音乐的版权问题，现在又开始使用QQ音乐了，当然它依然没有这个功能。所以就只有自己动手解决了～">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-5ba9b95fd47c6d70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-29a5e76476b0277c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-3eaf25db9994fd99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-da3feb8a9926404e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-374fc96737784ee4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-d9c6892f9bf2b4b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-21T12:11:04.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arvinljwBlog">
-<meta name="twitter:description" content="Android、Python等学习总结">
+<meta name="twitter:title" content="Python抓取QQ音乐歌单并分析">
+<meta name="twitter:description" content="学了python也有一段时间了，对于爬虫，后端的框架也有一些了解，但是都是在学习的时候跟着别人写的，感觉都不是自己的知识一样。我去年就给网易云音乐提了一个建议，就是通过播放量或者一个受欢迎程度来排序，然而肯定是没有管我的，随着网易云音乐的版权问题，现在又开始使用QQ音乐了，当然它依然没有这个功能。所以就只有自己动手解决了～">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3157525-5ba9b95fd47c6d70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -167,32 +176,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Android动态更换桌面图标" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Python抓取QQ音乐歌单并分析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/Android动态更换桌面图标/">Android动态更换桌面图标</a>
+    <h1 class="article-title" itemprop="name">
+      Python抓取QQ音乐歌单并分析
     </h1>
   
 
         
-        <a href="/2017/10/10/Android动态更换桌面图标/" class="archive-article-date">
-  	<time datetime="2017-10-10T02:38:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+        <a href="/2018/06/20/Python抓取QQ音乐歌单并分析/" class="archive-article-date">
+  	<time datetime="2018-06-20T10:00:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近遇到了这么个需求，动态改变桌面图标，这个功能本身还是比较常见，比如天猫等app在各种剁手节的时候基本都会换个应景的图标以及整体风格，而这里只讨论图标的更换，查阅了一些资料，这里就介绍一下我认为最便捷的方式。</p>
-        
-          <a class="article-more-a" href="/2017/10/10/Android动态更换桌面图标/#more">more >></a>
-        
+        <p>学了python也有一段时间了，对于爬虫，后端的框架也有一些了解，但是都是在学习的时候跟着别人写的，感觉都不是自己的知识一样。我去年就给网易云音乐提了一个建议，就是通过播放量或者一个受欢迎程度来排序，然而肯定是没有管我的，随着网易云音乐的版权问题，现在又开始使用QQ音乐了，当然它依然没有这个功能。所以就只有自己动手解决了～</p>
+<a id="more"></a>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>首先抓取这些歌单，<strong>一是为了让自己在没有歌听的时候从播放量高的歌单里选一些来听</strong>，<strong>二是自己动手抓取一下数据，并简单的分析，熟悉技术</strong>。所以我需要知道至少需要<strong>歌单名</strong>，<strong>歌单播放次数</strong>，之后再分析都是什么类型的时候需要标签，但是这个不一定准确，所以也就加上去仅供参考。最终需要的数据就有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class QQMusicItem(Item):</span><br><span class="line">    # 歌单名</span><br><span class="line">    songSheet = Field()</span><br><span class="line">    # 作者</span><br><span class="line">    authorName = Field()</span><br><span class="line">    # 播放次数</span><br><span class="line">    playTimes = Field()</span><br><span class="line">    # 创建时间</span><br><span class="line">    createTime = Field()</span><br><span class="line">    # 标签</span><br><span class="line">    tags = Field()</span><br><span class="line">    # 介绍</span><br><span class="line">    introduce = Field()</span><br></pre></td></tr></table></figure>
+<h2 id="爬取QQ音乐歌单"><a href="#爬取QQ音乐歌单" class="headerlink" title="爬取QQ音乐歌单"></a>爬取QQ音乐歌单</h2><p>首先给出<a href="https://github.com/arvinljw/SpiderNet" target="_blank" rel="noopener">源码</a>，下文中就不再贴代码，因为爬取数据的代码没什么复用行，而且实现方式多种多样，主要是实现思想。下文中就以解决踩到的坑为线索来实现目的。</p>
+<p>打开QQ音乐网页版的<a href="https://y.qq.com/portal/playlist.html" target="_blank" rel="noopener">分类歌单</a>界面，乍一看，一分析网页源码，看到下图：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-5ba9b95fd47c6d70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="playlist_item"></p>
+<p>找到这里我以为和普通的爬取数据一样，直接看其标签的内容就能抓去完成了，是的不踩一下坑都不知道有多深。是的显然失败了，一条数据都没有。打印一下访问的网页，查找一下这个class的名字，发现居然没有，是的我就这样掉坑里了。</p>
+<p>那么看来它就是使用动态填充的，那么它肯定就调用了接口，请求数据，那么就去找，在检查里的network中找啊找，最终找到了它：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-29a5e76476b0277c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="playlist_api"></p>
+<p><em>这个接口的寻找不知道技巧，请知道的不吝赐教</em></p>
+<p>到这里得到了大部分数据，<strong>歌单名，作者名，播放次数，创建时间都有</strong>了。也就是说，只有<strong>标签和介绍没有</strong>，这个数据通过每一项点进详情里边就能发现，这次我聪明了，没有再直接写，先去找获取详情的接口，毕竟qq音乐这种大厂的产品肯定是技术统一的，这里的数据肯定也是填充的，功夫不负有心人，让我找到了～</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-3eaf25db9994fd99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="detailinfo"></p>
+<p>是的从这个数据里边就找到了标签和介绍。</p>
+<p>看着短短的几句话，就找到了，其实这个过程我不知道技巧，所以还是耗费了不少时间，也是因为不熟悉吧。</p>
+<p>然后就是分页获取全部歌单数据，既然每一页它是调的接口就更容易了，我在第二页去查看第二页请求数据的接口，和第一页的比较，发现其实就是最后两个参数（sin（开始）和ein（结束））引起的变化。在观察这个接口的参数的过程中发现他的rnd这个参数是在变化的，所以在请求每页的数据的时候这三个参数是需要动态改变的。</p>
+<p>然后我就重新编码，获取数据，处理数据编程json字符串格式，再转为字典，然后遍历获取到需要的数据。写完执行发现接口访问不了，这时候想起来可能是header需要加参数，再去看那个数据，避免错误就把几乎所有的参数都加上了，其中我觉得referer比较重要。对于referer每一页的接口都是可以来自歌单首页，但是对于详情来源就是详情页，参数带有歌单的id，这个id正好可以从每页的每一项的数据中拿到，所以动态改变就行了，最后删掉一些不是很重要的参数，例如这里我只删除了loginUin。</p>
+<p>然后写上代码，经过调试，终于成功了。</p>
+<p>最后我把它保存成一个csv文件，通过播放量排序，截取前20，得到了下图</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-da3feb8a9926404e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="rank"></p>
+<p>到这里数据的爬取工作已经完成。</p>
+<h2 id="分析数据"><a href="#分析数据" class="headerlink" title="分析数据"></a>分析数据</h2><p>数据拿到后，在上边已经简单的处理了以下数据，就是看看播放次数前20的歌单。</p>
+<p>接着我想看看播放次数的大致分布情况，例如播放5000万次以上有多少，1000万，500万，100万，50万，10万以上以及10万以下，都有多少。然后绘制成柱状图，看看是什么情况。</p>
+<p>是的，对于这个数据的处理，就用到了numpy和pandas以及matplotlib。经过分析得出下图结果:</p>
+<h3 id="播放次数分析"><a href="#播放次数分析" class="headerlink" title="播放次数分析"></a>播放次数分析</h3><p><img src="https://upload-images.jianshu.io/upload_images/3157525-374fc96737784ee4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="播放次数分析"></p>
+<p>很直观的看到高于500万播放次数的歌单是少数的。按比例来看的话，能明显看到10万以下的歌单有2300多个，还是比较多的，之后再进一步分析这2300多个歌单的创建时间的分布，这里就不继续分析了。</p>
+<h3 id="标签分析"><a href="#标签分析" class="headerlink" title="标签分析"></a>标签分析</h3><p>对于标签什么的，以下我就想到了使用词云，就能直观的看到哪些词出现的次数多。歌单都主要是什么类型的比较受欢迎。编码后得到如下结果:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-d9c6892f9bf2b4b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标签分析"></p>
+<p>可能直接这样看能大概知道哪些多，但是还是不是很能分得很细，我又排了个序，下边列出降序排列前十的标签～</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[(&apos;流行&apos;, 1834), (&apos;英语&apos;, 1669), (&apos;国语&apos;, 1386), (&apos;电子&apos;, 723), </span><br><span class="line">(&apos;日语&apos;, 552), (&apos;民谣&apos;, 369), (&apos;ACG&apos;, 347), (&apos;影视&apos;, 337), </span><br><span class="line">(&apos;治愈&apos;, 337), (&apos;韩语&apos;, 330)]</span><br></pre></td></tr></table></figure>
+<p>先就分析这么多，等有空再分析一下创建时间的分布情况。</p>
+<p><a href="https://github.com/arvinljw/SpiderNet/tree/master/qqmusic" target="_blank" rel="noopener">再来一次源码</a></p>
+<p>不当之处请不吝赐教～</p>
+
       
 
       
@@ -205,7 +242,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Scrapy爬虫</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
         		</li>
       		
 		</ul>
@@ -214,16 +259,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/Android动态更换桌面图标/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/06/20/Python抓取QQ音乐歌单并分析/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/14/Java之接口和内部类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java之接口和内部类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -238,330 +342,48 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android之ViewPager使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/05/Android之ViewPager使用/">Android之ViewPager使用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/05/Android之ViewPager使用/" class="archive-article-date">
-  	<time datetime="2017-06-05T05:05:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本篇包含：实现一屏多页、自定义PageTransformer、OnPageChangeListener方法参数的解释和应用</p>
-        
-          <a class="article-more-a" href="/2017/06/05/Android之ViewPager使用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/05/Android之ViewPager使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目的"><span class="toc-number">1.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#爬取QQ音乐歌单"><span class="toc-number">2.</span> <span class="toc-text">爬取QQ音乐歌单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析数据"><span class="toc-number">3.</span> <span class="toc-text">分析数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#播放次数分析"><span class="toc-number">3.1.</span> <span class="toc-text">播放次数分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签分析"><span class="toc-number">3.2.</span> <span class="toc-text">标签分析</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Android代码混淆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/Android代码混淆/">Android代码混淆</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/10/Android代码混淆/" class="archive-article-date">
-  	<time datetime="2017-04-10T03:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。</p>
-<p>我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。</p>
-<p>经过整理发现代码混淆可以分为三部分：</p>
-<ul>
-<li>基本指令以及一些固定不混淆的代码；</li>
-<li>某些第三方包；</li>
-<li>自己书写的一些不要混淆的代码。</li>
-</ul>
-<p><strong>注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根据自己的情况去添加；</strong></p>
-        
-          <a class="article-more-a" href="/2017/04/10/Android代码混淆/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/10/Android代码混淆/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android消息机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Android消息机制/">Android消息机制</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/20/Android消息机制/" class="archive-article-date">
-  	<time datetime="2017-02-20T06:40:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本篇Android消息机制的原理，包括四个方面ThreadLocal、MessageQueue、Looper和Handler，会通过消息机制流程来分析理解。</p>
-        
-          <a class="article-more-a" href="/2017/02/20/Android消息机制/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/20/Android消息机制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android之Activity总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/Android之Activity总结/">Android之Activity总结</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/19/Android之Activity总结/" class="archive-article-date">
-  	<time datetime="2016-11-19T06:50:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本篇包含生命周期、启动模式以及一些Activity中常用的方法。</p>
-<p>在Android开发中，用的最为平凡的，最不能少的就是Activity了。还记得刚接触Android的时候，第一件事就是找到Hello World是怎么显示到手机上的，那就是我第一次接触到Activity。话不多说，直接进入正题。</p>
-        
-          <a class="article-more-a" href="/2016/11/19/Android之Activity总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/19/Android之Activity总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://arvinljw.github.io/2018/06/20/Python抓取QQ音乐歌单并分析/",
+  owner: 'arvinljw',
+  repo: 'arvinljw.github.io',
+  oauth: {
+    client_id: '173013408c3102aeca94',
+    client_secret: '0e42e5ac34a4333d544cd23cf0010b4ea4e25123',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -584,8 +406,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
