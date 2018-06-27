@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Android代码混淆 | arvinljwBlog</title>
+  <title>Android学习之ConstraintLayout | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。 我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。 经过整理发现代码混淆可以分为三部分：  基本指令以及一些固定不混淆的代码； 某些第三方包； 自己书写的一些不要混淆的代码。  注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根">
+  <meta name="description" content="ConstraintLayout是在Google 2016年的I/O大会上新出的一个布局组件，过去这么长的时间，现在也更新到1.1.2版本了，优点是能将复杂的布局都放在同一层，这样大大的优化了界面渲染的效率。下面就开始总结我学习到的ConstraintLayout的知识点。">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android代码混淆">
-<meta property="og:url" content="https://arvinljw.github.io/2017/04/10/Android代码混淆/index.html">
+<meta property="og:title" content="Android学习之ConstraintLayout">
+<meta property="og:url" content="https://arvinljw.github.io/2018/06/26/Android学习之ConstraintLayout/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。 我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。 经过整理发现代码混淆可以分为三部分：  基本指令以及一些固定不混淆的代码； 某些第三方包； 自己书写的一些不要混淆的代码。  注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根">
+<meta property="og:description" content="ConstraintLayout是在Google 2016年的I/O大会上新出的一个布局组件，过去这么长的时间，现在也更新到1.1.2版本了，优点是能将复杂的布局都放在同一层，这样大大的优化了界面渲染的效率。下面就开始总结我学习到的ConstraintLayout的知识点。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-13T10:15:22.186Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-afe6f0ba902eb523.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-aef0589581a5b5a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-fcf1016bf64cb1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-27T02:40:41.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android代码混淆">
-<meta name="twitter:description" content="最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。 我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。 经过整理发现代码混淆可以分为三部分：  基本指令以及一些固定不混淆的代码； 某些第三方包； 自己书写的一些不要混淆的代码。  注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根">
+<meta name="twitter:title" content="Android学习之ConstraintLayout">
+<meta name="twitter:description" content="ConstraintLayout是在Google 2016年的I/O大会上新出的一个布局组件，过去这么长的时间，现在也更新到1.1.2版本了，优点是能将复杂的布局都放在同一层，这样大大的优化了界面渲染的效率。下面就开始总结我学习到的ConstraintLayout的知识点。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3157525-afe6f0ba902eb523.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -169,160 +173,58 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android代码混淆" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Android学习之ConstraintLayout" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android代码混淆
+      Android学习之ConstraintLayout
     </h1>
   
 
         
-        <a href="/2017/04/10/Android代码混淆/" class="archive-article-date">
-  	<time datetime="2017-04-10T03:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
+        <a href="/2018/06/26/Android学习之ConstraintLayout/" class="archive-article-date">
+  	<time datetime="2018-06-26T09:54:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。</p>
-<p>我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。</p>
-<p>经过整理发现代码混淆可以分为三部分：</p>
-<ul>
-<li>基本指令以及一些固定不混淆的代码；</li>
-<li>某些第三方包；</li>
-<li>自己书写的一些不要混淆的代码。</li>
-</ul>
-<p><strong>注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根据自己的情况去添加；</strong></p>
+        <p>ConstraintLayout是在Google 2016年的I/O大会上新出的一个布局组件，过去这么长的时间，现在也更新到1.1.2版本了，优点是能将复杂的布局都放在同一层，这样大大的优化了界面渲染的效率。下面就开始总结我学习到的ConstraintLayout的知识点。</p>
 <a id="more"></a>
-<h2 id="代码混淆"><a href="#代码混淆" class="headerlink" title="代码混淆"></a>代码混淆</h2><p>俗话说，授人以鱼不如授人以渔，但是先有鱼总是好的，所以接下来就会先介绍一下代码混淆的基本使用。</p>
-<h3 id="鱼"><a href="#鱼" class="headerlink" title="鱼"></a>鱼</h3><h4 id="1、开启代码混淆"><a href="#1、开启代码混淆" class="headerlink" title="1、开启代码混淆"></a>1、开启代码混淆</h4><p>在app module下的gradle文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled true</span><br><span class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>默认minifyEnable是false，我们只需要改为true就开启了混淆。这里只需要在release的时候开启混淆即可，代码混淆会加长APK的生成时间，而且android studio2.0以后使用instance run会停用ProGuard。</p>
-<p>这时候打包，安装，如果引入了其他第三方的代码的话，不出意外时会crash的，虽然proguard-android.txt文件中已经包含了一些不混淆的指令了，那些事系统常规的指令，对于自定义的一些指令就需要自己在app下的proguard-rules.pro文件中去定义。</p>
-<h4 id="2、proguard模板"><a href="#2、proguard模板" class="headerlink" title="2、proguard模板"></a>2、proguard模板</h4><p><a href="https://github.com/arvinljw/AFBaseLibrary/blob/master/afbaselibrary/proguard-rules.pro" target="_blank" rel="noopener">proguard-rules.pro</a></p>
-<p>里边的内容我也用分割线做了一下简单的分割，包含的也是上文说到的三部分，下面简单介绍一下具体包含的内容。</p>
-<ul>
-<li>基本指令：包含了压缩级别，忽略警告，混淆警告等；</li>
-<li>固定不混淆的代码：包含继承四大组件中的内容，support包，view相关、序列化相关、R文件、枚举、native方法等；</li>
-<li>第三方包：这一部分需要根据项目情况去处理，这里支持了我们公司常用框架里边的第三方包；</li>
-<li>自己书写的不需要混淆的代码：这里就需要根据自己的情况去书写了，而我们只需要知道哪些东西是不能混淆的就能编写了。</li>
-</ul>
-<p>下面来说一下，混淆的规则：</p>
-<ul>
-<li>第三方库。一般都会提供混淆规则，如果没有提供，报错后，我们就可以保护报错的类，不让其混淆，实在不行就用最暴力的解决办法，把其全部代码都不混淆。</li>
-<li>运行时动态改变代码。一般例如反射，实体类。</li>
-<li>被JNI中调用的类。</li>
-<li>WebView中Js调用的方法。</li>
-<li>View相关的类和事件。</li>
-</ul>
-<p>这两步过后，基本就完成了代码混淆，运行后发现问题再解决即可，下面就开始介绍一些混淆中的语法。</p>
-<h3 id="渔"><a href="#渔" class="headerlink" title="渔"></a>渔</h3><h4 id="1、常用命令"><a href="#1、常用命令" class="headerlink" title="1、常用命令"></a>1、常用命令</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-keep</td>
-<td style="text-align:center">防止该类所有内容被移除或重命名</td>
-</tr>
-<tr>
-<td>-keepnames</td>
-<td style="text-align:center">防止类和成员被重命名</td>
-</tr>
-<tr>
-<td>-keepclassmembers</td>
-<td style="text-align:center">防止成员被移除或者被重命名</td>
-</tr>
-<tr>
-<td>-keepclasseswithmembers</td>
-<td style="text-align:center">防止拥有该成员的类和成员被移除或者被重命名</td>
-</tr>
-<tr>
-<td>-keepclasseswithmembernames</td>
-<td style="text-align:center">防止拥有该成员的类和成员被重命名</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2、常用规则"><a href="#2、常用规则" class="headerlink" title="2、常用规则"></a>2、常用规则</h4><ul>
-<li>类：需要使用完全限定名；</li>
-<li>*：通配符，任意字符串，不包含包名分隔符（.）；</li>
-<li>**：通配符，任意字符串，包含包名分隔符（.）；</li>
-<li>extends：继承某类的类；</li>
-<li>implement：实现某接口的类；</li>
-<li>$：内部类；</li>
-<li>&lt;init&gt;：所有构造方法；</li>
-<li>&lt;fields&gt;：所有成员变量；</li>
-<li>&lt;methods&gt;：所有方法；</li>
-<li>…：任意参数；</li>
-<li>修饰符：public private protected</li>
-</ul>
-<h4 id="3、例子"><a href="#3、例子" class="headerlink" title="3、例子"></a>3、例子</h4><table>
-<thead>
-<tr>
-<th>含义</th>
-<th>指令语句</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>不混淆某个类</td>
-<td>-keep public class packageName.className{ *; }</td>
-</tr>
-<tr>
-<td>不混淆某个包的所有类</td>
-<td>-keep class packageName.**{ *; }</td>
-</tr>
-<tr>
-<td>不混淆某个类的子类</td>
-<td>-keep public class * extends packageName.className{ *; }</td>
-</tr>
-<tr>
-<td>不混淆某个接口的子类</td>
-<td>-keep public class * implements packageName.className{ *; }</td>
-</tr>
-<tr>
-<td>不混淆某个类的构造方法</td>
-<td>-keepclassmembers class packageName.className{ public <init>(); }</init></td>
-</tr>
-<tr>
-<td>不混淆某个类的某个方法</td>
-<td>-keepclassmembers class packageName.className{ public void methodName(…); }</td>
-</tr>
-<tr>
-<td>不混淆某个类的内部类</td>
-<td>-keep class packageName.className$*{ *; }</td>
-</tr>
-</tbody>
-</table>
-<h3 id="混淆的步骤"><a href="#混淆的步骤" class="headerlink" title="混淆的步骤"></a>混淆的步骤</h3><p>上文中介绍了代码的混淆，其实Android的混淆中还包括了资源压缩，整个过程包括：压缩、优化、混淆、以及预校验，其中第四步在Android中可不要，默认是去掉了的，另外三个都是默认开启的。</p>
-<ul>
-<li>压缩：会移除未被使用的类和成员变量，会在优化后再次被执行；</li>
-<li>优化：在字节码级别执行优化，让应用运行的更快；</li>
-<li>混淆：增大反编译难度，类和类成员会被随机命名，除非用keep保护。</li>
-</ul>
-<p>下面再简单介绍一下再开启资源压缩，和开启代码混淆在一起加上shrinkResources true即可。但是这时候所有未被使用的资源都会被移除，但是有的资源我们可能是动态使用的，就需要保留。<br>那么就可以创建一个包含<resources>标签的XML文件，并使用tools:keep属性指定保留的资源，使用tools:discard属性指定要删除的资源；多个就使用逗号隔开即可，还可以使用*通配符。例如：</resources></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">	tools:keep=&quot;@layout/l_used*_c,@layout/l_used_a,@layout/l_used_b*&quot;</span><br><span class="line">	tools:discard=&quot;@layout/unused2&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>对于资源的保留，还有一个严格应用的检查，开启后，在使用Resources.getIdentifier()就可以根据动态生成的字符串查询资源名字，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name = String.format(&quot;img_%1d&quot;, angle + 1);</span><br><span class="line">res = getResources().getIdentifier(name, &quot;drawable&quot;, getPackageName());</span><br></pre></td></tr></table></figure>
-<p>使用方式也很简单，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    tools:shrinkMode=&quot;strict&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>到这里，混淆相关的就基本上介绍完了，然后再总结一下需要注意的东西：</p>
-<ul>
-<li>一定要根据混淆规则判断自己的代码是否需要混淆；</li>
-<li>测试的版本一定需要打包后的apk；</li>
-</ul>
-<p><em>还遗留的问题是：错误日志的定位问题？思路是根据输出的mapping文件去对应，没有详细的去落实，实际遇到了再补上具体的解决方案。</em></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://developer.android.com/studio/build/shrink-code.html" target="_blank" rel="noopener">压缩代码和资源</a></p>
-<p><a href="https://www.jianshu.com/p/158aa484da13" target="_blank" rel="noopener">写给Android开发者的混淆使用手册</a></p>
-<p><a href="https://www.jianshu.com/p/ab865bfde96f" target="_blank" rel="noopener">Android Studio代码混淆插件</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>学了之后发现其实这个布局是集当前已有的基本布局的一个优化整合的产物，对于复杂布局的处理也很好，基本能想到的简便的方式都有，例如相对位置，权重，百分比等这些在布局的时候能事半功倍。看起来就像是RelativeLayout、LinearLayout、PercentLayout等的综合体。</p>
+<h2 id="相对位置"><a href="#相对位置" class="headerlink" title="相对位置"></a>相对位置</h2><p>相对位置的布局使用效果图，下边的说明中可以和这个图比较简单的想一下如何实现，这样有利于熟悉使用哦。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-afe6f0ba902eb523.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="relative_position.png"></p>
+<p>和RelativeLayout的相对布局相比，相对位置的可能性更多，RelativeLayout能做到的它都可以做到。它相对位置的基本原则是当前组件的某一边边界在另一个组件的某个方向。当然左右和上下是分开的。即有当前组件的左边界或者右边界和另一个组件的左边对齐或右边对齐，上下也是同理。具体的有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">当前组件的左边界和另一个组件的左边对齐，即与另一个组件按左边对齐</span><br><span class="line">layout_constraintLeft_toLeftOf</span><br><span class="line"></span><br><span class="line">当前组件的左边界和另一个组件的右边对齐，即在另一个组件的右边</span><br><span class="line">layout_constraintLeft_toRightOf</span><br><span class="line"></span><br><span class="line">当前组件的右边界和另一个组件的右边对齐，即与另一个组件按右边对齐</span><br><span class="line">layout_constraintRight_toRightOf</span><br><span class="line"></span><br><span class="line">当前组件的右边界和另一个组件的左边对齐，即在另一个组件的左边</span><br><span class="line">layout_constraintRight_toLeftOf</span><br><span class="line"></span><br><span class="line">当前组件的上边界和另一个组件的上边对齐，即与另一个组件按上边对齐</span><br><span class="line">layout_constraintTop_toTopOf</span><br><span class="line"></span><br><span class="line">当前组件的上边界和另一个组件的下边对齐，即在另一个组件的下边</span><br><span class="line">layout_constraintTop_toBottomOf</span><br><span class="line"></span><br><span class="line">当前组件的下边界和另一个组件的下边对齐，即与另一个组件按底边对齐</span><br><span class="line">layout_constraintBottom_toBottomOf</span><br><span class="line"></span><br><span class="line">当前组件的下边界和另一个组件的上边对齐，即在另一个组件的上边</span><br><span class="line">layout_constraintBottom_toTopOf</span><br></pre></td></tr></table></figure>
+<p>仔细观察就不难发现，这就是对应着RelativeLayout的toXXXOf和alignXXX，当然对于居中和右对齐，也是使用上述的方法，上边的方法接受的参数可以是另一个组件的id，也可以是parent这个值，也就是相对于父容器。</p>
+<p>居中技巧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">在父容器的最左边</span><br><span class="line">app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line"></span><br><span class="line">在父容器的最右边</span><br><span class="line">app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line"></span><br><span class="line">在父容器的最上边</span><br><span class="line">app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line"></span><br><span class="line">在父容器的最下边</span><br><span class="line">app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br></pre></td></tr></table></figure>
+<p>其中可以两个及其以上的组合，就能实现各种居中，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">水平居中</span><br><span class="line">app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line"></span><br><span class="line">垂直居中</span><br><span class="line">app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line">app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line"></span><br><span class="line">在父容器的正中</span><br><span class="line">app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line">app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br></pre></td></tr></table></figure>
+<p>还有其他组合方式就不一一介绍了。在居中的过程中可以使用bias，来实现在某个方向的偏向。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">水平居中后再水平偏向左边0.2个屏幕宽度位置</span><br><span class="line">app:layout_constraintHorizontal_bias=&quot;0.3&quot;</span><br><span class="line">app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">app:layout_constraintRight_toRightOf=&quot;parent&quot;</span><br><span class="line"></span><br><span class="line">垂直居中后再垂直偏向下边0.4个屏幕高度位置</span><br><span class="line">app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line">app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">app:layout_constraintVertical_bias=&quot;0.9&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="margins的使用"><a href="#margins的使用" class="headerlink" title="margins的使用"></a>margins的使用</h2><p>在ConstraintLayout中，对于margin的使用，只有在具有约束的方向才有效。例如只有左侧有约束，那么只有marginLeft有效，其他方向的margin都是无效的。</p>
+<p>还有一个点，就是与当前组件约束的组件visible为gone了，就可以设置gone_marginXXX，即在约束的组件被隐藏了，这个margin才有效，这样就能避免隐藏导致布局出现混乱，也算是解决相对布局的一个容易错乱的问题。</p>
+<h2 id="宽高比例"><a href="#宽高比例" class="headerlink" title="宽高比例"></a>宽高比例</h2><p>使用<code>layout_constraintDimensionRatio</code>可以设置宽高比例，对于这个属性宽和高需要至少有一个设置为0dp，然后按照比例调整。例如一个banner宽等于屏幕宽度，高等于宽度的一半，那么就能很容易的设置成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android:layout_width=&quot;match_parent&quot;</span><br><span class="line">android:layout_height=&quot;0dp&quot;</span><br><span class="line">app:layout_constraintDimensionRatio=&quot;2:1&quot;</span><br></pre></td></tr></table></figure>
+<p>这样就能很容易的设置成一个宽高比为2:1的组件，大大的优化了布局的效率和方法。</p>
+<h2 id="链的模式"><a href="#链的模式" class="headerlink" title="链的模式"></a>链的模式</h2><p>对于链，其实在相对位置的时候就有体现了，组件链接到的是父容器，或者另一个组件，之间形成的约束关系，其实就是链。这个链的感觉就像是在组件的上下左右都有弹簧，哪边拉力越大就越往那边靠近。</p>
+<p>这个其实就不那么好说了，直接先看一下图</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-aef0589581a5b5a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="chains.png"></p>
+<p>使用到的方法也是相对位置的方法，只是链接的组件不同，以XYZ为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextView</span><br><span class="line">    android:id=&quot;@+id/X&quot;</span><br><span class="line">    style=&quot;@style/textAccent&quot;</span><br><span class="line">    android:text=&quot;X&quot;</span><br><span class="line">    app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">    app:layout_constraintRight_toLeftOf=&quot;@+id/Y&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;TextView</span><br><span class="line">    android:id=&quot;@+id/Y&quot;</span><br><span class="line">    style=&quot;@style/textPrimary&quot;</span><br><span class="line">    android:text=&quot;Y&quot;</span><br><span class="line">    app:layout_constraintLeft_toRightOf=&quot;@+id/X&quot;</span><br><span class="line">    app:layout_constraintRight_toLeftOf=&quot;@+id/Z&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;TextView</span><br><span class="line">    android:id=&quot;@+id/Z&quot;</span><br><span class="line">    style=&quot;@style/textAccent&quot;</span><br><span class="line">    android:text=&quot;Z&quot;</span><br><span class="line">    app:layout_constraintLeft_toRightOf=&quot;@+id/Y&quot;</span><br><span class="line">    app:layout_constraintRight_toRightOf=&quot;parent&quot;</span><br><span class="line">    /&gt;</span><br></pre></td></tr></table></figure>
+<p>其中X的左边界与父容器的左边对齐，右边界在Y的左边；Y的左边界在X的右边，右边界在Z的左边；Z的左边界在Y的右边，右边界与父容器的左边界对齐。不看图的话很难想象这样的约束之后就能把这三个组件水平的排放在一行中，并且会是平均分配，宽度不足的地方空白来填充。</p>
+<p>对于下边的ABC、DEF、GHI也是这样的关系，但是只是多了链的模式，其实XYZ也有链的模式，是默认的spread，ABC是spread_inside，就是指两边的靠到父容器的边上，中间不足的空白填充；DEF是packed，就是三个紧挨在一起，居中显示，但是这里看到的有向左的偏移，是的这个模式下还可以和bias一起使用，这里使用到水平方向的偏移，值是0.2；最后的GHI也是packed模式下使用了weight属性，当然这里使用的是水平方向的权重，GHI的权重是1:2:1，就能达到这样的效果。</p>
+<p>这一部分就相当于是融合了LinearLayout的布局方式，让这个布局方式更加方便。</p>
+<h2 id="GuideLine"><a href="#GuideLine" class="headerlink" title="GuideLine"></a>GuideLine</h2><p>以前在使用相对布局的有个技巧就是使用一个没有背景的View，设置的大小也很小例如1dp之类的，让它在某个位置当作辅助组件，便于布局时的控制，但是现在的GuideLine功能也更加强大，他能以任何比例在屏幕的任何位置，具有水平和垂直两个方向的引导线，便于控制位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">表示水平方向的线，从左往右，位置在高的中间</span><br><span class="line">&lt;android.support.constraint.Guideline</span><br><span class="line">    android:id=&quot;@+id/line_h&quot;</span><br><span class="line">    android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    android:orientation=&quot;horizontal&quot;</span><br><span class="line">    app:layout_constraintGuide_percent=&quot;0.5&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">表示垂直方向的线，从上到下，位置在宽的中间</span><br><span class="line">&lt;android.support.constraint.Guideline</span><br><span class="line">    android:id=&quot;@+id/line_v&quot;</span><br><span class="line">    android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    android:orientation=&quot;vertical&quot;</span><br><span class="line">    app:layout_constraintGuide_percent=&quot;0.5&quot;</span><br><span class="line">    /&gt;</span><br></pre></td></tr></table></figure>
+<p>先申明这两个GuideLine在屏幕中是看不到的，下面为了直观的看到，我使用View来显示出这两根线。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-fcf1016bf64cb1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="guideLine.png"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>相信有了这个布局，熟练之后对于复杂布局的优化会有明显的提升，正因为功能强大，不知道会不会以后不再使用以前的基本布局。</p>
 
       
 
@@ -392,7 +294,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2017/04/10/Android代码混淆/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/06/26/Android学习之ConstraintLayout/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -406,18 +308,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/06/05/Android之ViewPager使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android之ViewPager使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/20/Android消息机制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android消息机制</div>
+    <a href="/2018/06/25/Java之字符串/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java之字符串</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -444,7 +337,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码混淆"><span class="toc-number">1.</span> <span class="toc-text">代码混淆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#鱼"><span class="toc-number">1.1.</span> <span class="toc-text">鱼</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、开启代码混淆"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、开启代码混淆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、proguard模板"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、proguard模板</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渔"><span class="toc-number">1.2.</span> <span class="toc-text">渔</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、常用命令"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、常用命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、常用规则"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、常用规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、例子"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混淆的步骤"><span class="toc-number">1.3.</span> <span class="toc-text">混淆的步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">1.4.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相对位置"><span class="toc-number">2.</span> <span class="toc-text">相对位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#margins的使用"><span class="toc-number">3.</span> <span class="toc-text">margins的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#宽高比例"><span class="toc-number">4.</span> <span class="toc-text">宽高比例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链的模式"><span class="toc-number">5.</span> <span class="toc-text">链的模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GuideLine"><span class="toc-number">6.</span> <span class="toc-text">GuideLine</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -469,7 +362,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://arvinljw.github.io/2017/04/10/Android代码混淆/",
+  id: "https://arvinljw.github.io/2018/06/26/Android学习之ConstraintLayout/",
   owner: 'arvinljw',
   repo: 'arvinljw.github.io',
   oauth: {

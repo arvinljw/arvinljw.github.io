@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Android代码混淆 | arvinljwBlog</title>
+  <title>Java之字符串 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。 我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。 经过整理发现代码混淆可以分为三部分：  基本指令以及一些固定不混淆的代码； 某些第三方包； 自己书写的一些不要混淆的代码。  注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根">
-<meta name="keywords" content="Android">
+  <meta name="description" content="Java中字符串的使用是最常见的，本文总结字符串使用中需要注意的地方。">
+<meta name="keywords" content="Java,《Thinking in Java》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android代码混淆">
-<meta property="og:url" content="https://arvinljw.github.io/2017/04/10/Android代码混淆/index.html">
+<meta property="og:title" content="Java之字符串">
+<meta property="og:url" content="https://arvinljw.github.io/2018/06/25/Java之字符串/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。 我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。 经过整理发现代码混淆可以分为三部分：  基本指令以及一些固定不混淆的代码； 某些第三方包； 自己书写的一些不要混淆的代码。  注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根">
+<meta property="og:description" content="Java中字符串的使用是最常见的，本文总结字符串使用中需要注意的地方。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-13T10:15:22.186Z">
+<meta property="og:updated_time" content="2018-06-25T08:45:32.411Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android代码混淆">
-<meta name="twitter:description" content="最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。 我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。 经过整理发现代码混淆可以分为三部分：  基本指令以及一些固定不混淆的代码； 某些第三方包； 自己书写的一些不要混淆的代码。  注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根">
+<meta name="twitter:title" content="Java之字符串">
+<meta name="twitter:description" content="Java中字符串的使用是最常见的，本文总结字符串使用中需要注意的地方。">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -169,160 +169,111 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android代码混淆" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java之字符串" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android代码混淆
+      Java之字符串
     </h1>
   
 
         
-        <a href="/2017/04/10/Android代码混淆/" class="archive-article-date">
-  	<time datetime="2017-04-10T03:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
+        <a href="/2018/06/25/Java之字符串/" class="archive-article-date">
+  	<time datetime="2018-06-25T03:02:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。</p>
-<p>我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。</p>
-<p>经过整理发现代码混淆可以分为三部分：</p>
-<ul>
-<li>基本指令以及一些固定不混淆的代码；</li>
-<li>某些第三方包；</li>
-<li>自己书写的一些不要混淆的代码。</li>
-</ul>
-<p><strong>注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根据自己的情况去添加；</strong></p>
+        <p>Java中字符串的使用是最常见的，本文总结字符串使用中需要注意的地方。</p>
 <a id="more"></a>
-<h2 id="代码混淆"><a href="#代码混淆" class="headerlink" title="代码混淆"></a>代码混淆</h2><p>俗话说，授人以鱼不如授人以渔，但是先有鱼总是好的，所以接下来就会先介绍一下代码混淆的基本使用。</p>
-<h3 id="鱼"><a href="#鱼" class="headerlink" title="鱼"></a>鱼</h3><h4 id="1、开启代码混淆"><a href="#1、开启代码混淆" class="headerlink" title="1、开启代码混淆"></a>1、开启代码混淆</h4><p>在app module下的gradle文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled true</span><br><span class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>默认minifyEnable是false，我们只需要改为true就开启了混淆。这里只需要在release的时候开启混淆即可，代码混淆会加长APK的生成时间，而且android studio2.0以后使用instance run会停用ProGuard。</p>
-<p>这时候打包，安装，如果引入了其他第三方的代码的话，不出意外时会crash的，虽然proguard-android.txt文件中已经包含了一些不混淆的指令了，那些事系统常规的指令，对于自定义的一些指令就需要自己在app下的proguard-rules.pro文件中去定义。</p>
-<h4 id="2、proguard模板"><a href="#2、proguard模板" class="headerlink" title="2、proguard模板"></a>2、proguard模板</h4><p><a href="https://github.com/arvinljw/AFBaseLibrary/blob/master/afbaselibrary/proguard-rules.pro" target="_blank" rel="noopener">proguard-rules.pro</a></p>
-<p>里边的内容我也用分割线做了一下简单的分割，包含的也是上文说到的三部分，下面简单介绍一下具体包含的内容。</p>
+<h2 id="不可变"><a href="#不可变" class="headerlink" title="不可变"></a>不可变</h2><p>从String的源码可以看到这是一个final类，其主要的字段也是final的，而且每个修改字符串的方法也是重新创建一个值返回的，这也是值得推荐的，毕竟对于方法而言，参数更应该是提供信息，而不应该去修改参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public final class String implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence &#123;</span><br><span class="line">    private final char value[];</span><br><span class="line">    // 其他代码...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到其实内部就是一个字符数组来存储的。对于源码的分析就不在这里展开了。</p>
+<h2 id="字符串的创建"><a href="#字符串的创建" class="headerlink" title="字符串的创建"></a>字符串的创建</h2><p>字符串都是存储在Java虚拟机的字符串常量池中的。一般可分为两种创建方式：</p>
 <ul>
-<li>基本指令：包含了压缩级别，忽略警告，混淆警告等；</li>
-<li>固定不混淆的代码：包含继承四大组件中的内容，support包，view相关、序列化相关、R文件、枚举、native方法等；</li>
-<li>第三方包：这一部分需要根据项目情况去处理，这里支持了我们公司常用框架里边的第三方包；</li>
-<li>自己书写的不需要混淆的代码：这里就需要根据自己的情况去书写了，而我们只需要知道哪些东西是不能混淆的就能编写了。</li>
+<li><p><code>String s = &quot;abc&quot;</code>直接创建：</p>
+<p>  会先判断在常量池中是否存在abc这个字符串，有则直接返回引用，没有则创建再返回引用。</p>
+</li>
+<li><p><code>String s = new String(&quot;abc&quot;)</code>通过对象创建：</p>
+<p>  同样也会先判断在常量池中是否存在abc这个字符串，有则将abc赋值给new String这个对象，然后将对象的引用返回给s，如果在常量池中没有，则先创建，再重复存在的情况。其中会创建三个东西，s是引用在java虚拟机栈中，String对象在Java堆上，abc会在常量池中。</p>
+</li>
 </ul>
-<p>下面来说一下，混淆的规则：</p>
-<ul>
-<li>第三方库。一般都会提供混淆规则，如果没有提供，报错后，我们就可以保护报错的类，不让其混淆，实在不行就用最暴力的解决办法，把其全部代码都不混淆。</li>
-<li>运行时动态改变代码。一般例如反射，实体类。</li>
-<li>被JNI中调用的类。</li>
-<li>WebView中Js调用的方法。</li>
-<li>View相关的类和事件。</li>
-</ul>
-<p>这两步过后，基本就完成了代码混淆，运行后发现问题再解决即可，下面就开始介绍一些混淆中的语法。</p>
-<h3 id="渔"><a href="#渔" class="headerlink" title="渔"></a>渔</h3><h4 id="1、常用命令"><a href="#1、常用命令" class="headerlink" title="1、常用命令"></a>1、常用命令</h4><table>
+<p><em>注意常量池已经在jdk1.7以后从Java虚拟机的方法区移到了Java堆内存中</em></p>
+<h2 id="重载“-”与StringBuilder"><a href="#重载“-”与StringBuilder" class="headerlink" title="重载“+”与StringBuilder"></a>重载“+”与StringBuilder</h2><p>在字符串的使用中，发现使用+号连接是非常方便的，这是系统为我们重载的，<em>在c++中我们也是可以重载操作符的，但是java不允许</em>。通过将class文件转为字节码可以看到（使用命令javap -c c class文件路径），重载+的实质就是使用StringBuilder来拼接这些+号连接的字符串。</p>
+<p>所以需要注意在for 循环中不要直接使用+号去拼接字符串，那样就会导致重复创建StringBuilder对象浪费内存资源，应该直接在for 循环外创建一个StringBuilder然后在循环中手动append。但是也需要注意在append的时候，若是有多个字符串，参数中也不要使用+号去连接，而应该多次调用append，不然也会导致重复创建StringBuilder对象。正确的使用例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder stringBuilder = new StringBuilder();</span><br><span class="line">for (int i = 0; i &lt; 100; i++) &#123;</span><br><span class="line">    stringBuilder.append(&quot;数字&quot;).append(i);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(stringBuilder.toString());</span><br></pre></td></tr></table></figure>
+<h2 id="无意识的递归"><a href="#无意识的递归" class="headerlink" title="无意识的递归"></a>无意识的递归</h2><p>每个类都有一个toString的方法，默认的toString方法会打印出这个类的名字+@符号+内存地址的十六进制值，这一点从源码可以看到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public String toString() &#123;</span><br><span class="line">    return getClass().getName() + &quot;@&quot; + Integer.toHexString(hashCode());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而在继承自Object的类，重写toString方法之后想要打印内存地址，就得调用Object的toString方法，而不要使用this这个对象。虽然听上去很低级，但是确实也很低级。</p>
+<h2 id="String常用的方法"><a href="#String常用的方法" class="headerlink" title="String常用的方法"></a>String常用的方法</h2><table>
 <thead>
 <tr>
-<th>命令</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-keep</td>
-<td style="text-align:center">防止该类所有内容被移除或重命名</td>
-</tr>
-<tr>
-<td>-keepnames</td>
-<td style="text-align:center">防止类和成员被重命名</td>
-</tr>
-<tr>
-<td>-keepclassmembers</td>
-<td style="text-align:center">防止成员被移除或者被重命名</td>
-</tr>
-<tr>
-<td>-keepclasseswithmembers</td>
-<td style="text-align:center">防止拥有该成员的类和成员被移除或者被重命名</td>
-</tr>
-<tr>
-<td>-keepclasseswithmembernames</td>
-<td style="text-align:center">防止拥有该成员的类和成员被重命名</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2、常用规则"><a href="#2、常用规则" class="headerlink" title="2、常用规则"></a>2、常用规则</h4><ul>
-<li>类：需要使用完全限定名；</li>
-<li>*：通配符，任意字符串，不包含包名分隔符（.）；</li>
-<li>**：通配符，任意字符串，包含包名分隔符（.）；</li>
-<li>extends：继承某类的类；</li>
-<li>implement：实现某接口的类；</li>
-<li>$：内部类；</li>
-<li>&lt;init&gt;：所有构造方法；</li>
-<li>&lt;fields&gt;：所有成员变量；</li>
-<li>&lt;methods&gt;：所有方法；</li>
-<li>…：任意参数；</li>
-<li>修饰符：public private protected</li>
-</ul>
-<h4 id="3、例子"><a href="#3、例子" class="headerlink" title="3、例子"></a>3、例子</h4><table>
-<thead>
-<tr>
+<th>方法名</th>
 <th>含义</th>
-<th>指令语句</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>不混淆某个类</td>
-<td>-keep public class packageName.className{ *; }</td>
+<td>length()</td>
+<td>字符串的长度</td>
 </tr>
 <tr>
-<td>不混淆某个包的所有类</td>
-<td>-keep class packageName.**{ *; }</td>
+<td>charAt(int index)</td>
+<td>index位置上的字符串是什么</td>
 </tr>
 <tr>
-<td>不混淆某个类的子类</td>
-<td>-keep public class * extends packageName.className{ *; }</td>
+<td>toCharArray()</td>
+<td>复制内容到一个char数组并返回</td>
 </tr>
 <tr>
-<td>不混淆某个接口的子类</td>
-<td>-keep public class * implements packageName.className{ *; }</td>
+<td>contains(CharSequence s)</td>
+<td>是否包含某个字符串</td>
 </tr>
 <tr>
-<td>不混淆某个类的构造方法</td>
-<td>-keepclassmembers class packageName.className{ public <init>(); }</init></td>
+<td>equals(Object anObject)</td>
+<td>比较两个字符串是否相同</td>
 </tr>
 <tr>
-<td>不混淆某个类的某个方法</td>
-<td>-keepclassmembers class packageName.className{ public void methodName(…); }</td>
+<td>stratsWith(String prefix)</td>
+<td>字符串是否以某个字符串开头</td>
 </tr>
 <tr>
-<td>不混淆某个类的内部类</td>
-<td>-keep class packageName.className$*{ *; }</td>
+<td>endsWith(String suffix)</td>
+<td>字符串是否以某个字符串结尾</td>
+</tr>
+<tr>
+<td>indexOf(int ch)</td>
+<td>某个字符在字符串中的位置，从头开始查找，如果不存在则返回-1</td>
+</tr>
+<tr>
+<td>lastIndexOf(int ch)</td>
+<td>某个字符在字符串中的位置，从头最后开始查找，如果不存在则返回-1</td>
+</tr>
+<tr>
+<td>subString(int beginIndex, int endIndex)</td>
+<td>在原字符串中从开始位置到结束位置截取得到一个字符串返回</td>
+</tr>
+<tr>
+<td>replace(char oldChar, char newChar)</td>
+<td>在字符串中将所有旧的字符串换成新的字符串</td>
+</tr>
+<tr>
+<td>split(String regex)</td>
+<td>将字符串按照某个字符串或者正则表达式拆分成字符串数组</td>
+</tr>
+<tr>
+<td>matches(String regex)</td>
+<td>判断该字符串与某个字符串或者正则表达式是否匹配</td>
 </tr>
 </tbody>
 </table>
-<h3 id="混淆的步骤"><a href="#混淆的步骤" class="headerlink" title="混淆的步骤"></a>混淆的步骤</h3><p>上文中介绍了代码的混淆，其实Android的混淆中还包括了资源压缩，整个过程包括：压缩、优化、混淆、以及预校验，其中第四步在Android中可不要，默认是去掉了的，另外三个都是默认开启的。</p>
-<ul>
-<li>压缩：会移除未被使用的类和成员变量，会在优化后再次被执行；</li>
-<li>优化：在字节码级别执行优化，让应用运行的更快；</li>
-<li>混淆：增大反编译难度，类和类成员会被随机命名，除非用keep保护。</li>
-</ul>
-<p>下面再简单介绍一下再开启资源压缩，和开启代码混淆在一起加上shrinkResources true即可。但是这时候所有未被使用的资源都会被移除，但是有的资源我们可能是动态使用的，就需要保留。<br>那么就可以创建一个包含<resources>标签的XML文件，并使用tools:keep属性指定保留的资源，使用tools:discard属性指定要删除的资源；多个就使用逗号隔开即可，还可以使用*通配符。例如：</resources></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">	tools:keep=&quot;@layout/l_used*_c,@layout/l_used_a,@layout/l_used_b*&quot;</span><br><span class="line">	tools:discard=&quot;@layout/unused2&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>对于资源的保留，还有一个严格应用的检查，开启后，在使用Resources.getIdentifier()就可以根据动态生成的字符串查询资源名字，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name = String.format(&quot;img_%1d&quot;, angle + 1);</span><br><span class="line">res = getResources().getIdentifier(name, &quot;drawable&quot;, getPackageName());</span><br></pre></td></tr></table></figure>
-<p>使用方式也很简单，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    tools:shrinkMode=&quot;strict&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>到这里，混淆相关的就基本上介绍完了，然后再总结一下需要注意的东西：</p>
-<ul>
-<li>一定要根据混淆规则判断自己的代码是否需要混淆；</li>
-<li>测试的版本一定需要打包后的apk；</li>
-</ul>
-<p><em>还遗留的问题是：错误日志的定位问题？思路是根据输出的mapping文件去对应，没有详细的去落实，实际遇到了再补上具体的解决方案。</em></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://developer.android.com/studio/build/shrink-code.html" target="_blank" rel="noopener">压缩代码和资源</a></p>
-<p><a href="https://www.jianshu.com/p/158aa484da13" target="_blank" rel="noopener">写给Android开发者的混淆使用手册</a></p>
-<p><a href="https://www.jianshu.com/p/ab865bfde96f" target="_blank" rel="noopener">Android Studio代码混淆插件</a></p>
+<h2 id="String、StringBuilder与StringBuffer三者之间的区别"><a href="#String、StringBuilder与StringBuffer三者之间的区别" class="headerlink" title="String、StringBuilder与StringBuffer三者之间的区别"></a>String、StringBuilder与StringBuffer三者之间的区别</h2><p>String是只读字符串，所以字符串内容是不能被修改的。StringBuffer和StringBuilder中字符串是可修改的，用法也相同，只是前者是多线程时使用，有锁的机制，后者是jdk1.5以后加入的，适用于单线程，效率会比StringBuffer高一点。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于字符串的使用确实非常重要，对于正则表达式便是字符串的使用中最厉害的。对于正则表达式将会单独去学习总结。</p>
 
       
 
@@ -336,7 +287,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《Thinking in Java》</a>
         		</li>
       		
 		</ul>
@@ -392,7 +347,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2017/04/10/Android代码混淆/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/06/25/Java之字符串/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -406,18 +361,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/06/05/Android之ViewPager使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/26/Android学习之ConstraintLayout/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Android之ViewPager使用
+          Android学习之ConstraintLayout
         
       </div>
     </a>
   
   
-    <a href="/2017/02/20/Android消息机制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android消息机制</div>
+    <a href="/2018/06/20/Python抓取QQ音乐歌单并分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python抓取QQ音乐歌单并分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -444,7 +399,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码混淆"><span class="toc-number">1.</span> <span class="toc-text">代码混淆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#鱼"><span class="toc-number">1.1.</span> <span class="toc-text">鱼</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、开启代码混淆"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、开启代码混淆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、proguard模板"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、proguard模板</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渔"><span class="toc-number">1.2.</span> <span class="toc-text">渔</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、常用命令"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、常用命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、常用规则"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、常用规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、例子"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混淆的步骤"><span class="toc-number">1.3.</span> <span class="toc-text">混淆的步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">1.4.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#不可变"><span class="toc-number">1.</span> <span class="toc-text">不可变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串的创建"><span class="toc-number">2.</span> <span class="toc-text">字符串的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重载“-”与StringBuilder"><span class="toc-number">3.</span> <span class="toc-text">重载“+”与StringBuilder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无意识的递归"><span class="toc-number">4.</span> <span class="toc-text">无意识的递归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String常用的方法"><span class="toc-number">5.</span> <span class="toc-text">String常用的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String、StringBuilder与StringBuffer三者之间的区别"><span class="toc-number">6.</span> <span class="toc-text">String、StringBuilder与StringBuffer三者之间的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -469,7 +424,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://arvinljw.github.io/2017/04/10/Android代码混淆/",
+  id: "https://arvinljw.github.io/2018/06/25/Java之字符串/",
   owner: 'arvinljw',
   repo: 'arvinljw.github.io',
   oauth: {
