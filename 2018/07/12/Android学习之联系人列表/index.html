@@ -79,6 +79,8 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/tags/Python/">Python</a></li>
 	        
+				<li><a href="/tags/技术杂谈/">技术杂谈</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -87,8 +89,6 @@ var _hmt = _hmt || [];
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -135,6 +135,8 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -151,13 +153,15 @@ var _hmt = _hmt || [];
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/Android/">Android</a></li>
+					<li style="width: 20%"><a href="/tags/Android/">Android</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/Java/">Java</a></li>
+					<li style="width: 20%"><a href="/tags/Java/">Java</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/Python/">Python</a></li>
+					<li style="width: 20%"><a href="/tags/Python/">Python</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/技术杂谈/">技术杂谈</a></li>
 		        
 				</ul>
 			</nav>
@@ -480,8 +484,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
-      
-      
     
       
       
@@ -493,15 +495,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -526,6 +526,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">开源库</a>
               </li>
              
@@ -534,15 +546,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《Thinking in Java》</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,10 +571,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">git操作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">项目经验</a>
               </li>
             
             <div class="clearfix"></div>
@@ -613,31 +617,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="https://juejin.im/timeline" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>掘金</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://p.codekk.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>codekk</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://developer.android.google.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Android_Developers</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">热爱Android开发&lt;br&gt;学习Python中...&lt;br&gt;&lt;br&gt;有问题可以给我发邮件～</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">热爱Android开发&lt;br&gt;喜欢学习新技术...&lt;br&gt;&lt;br&gt;有问题可以给我发邮件～</div>
   	  	
     	</section>
     
