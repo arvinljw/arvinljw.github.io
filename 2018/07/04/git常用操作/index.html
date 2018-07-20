@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Android代码混淆 | arvinljwBlog</title>
+  <title>git常用操作 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。 我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。 经过整理发现代码混淆可以分为三部分：  基本指令以及一些固定不混淆的代码； 某些第三方包； 自己书写的一些不要混淆的代码。  注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根">
-<meta name="keywords" content="Android">
+  <meta name="description" content="git在代码托管，协同开发中堪称利器，虽然以前也一直在使用，但是对于命令不是很熟悉，每次遇到相应的操作都要去搜一下，这次就在这里总结一下常用的操作方法。下边的命令都可以自己在本地创建一个文件夹，然后初始化，然后在里边操作文件的变化进行练习。">
+<meta name="keywords" content="git操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android代码混淆">
-<meta property="og:url" content="https://arvinljw.github.io/2017/04/10/Android代码混淆/index.html">
+<meta property="og:title" content="git常用操作">
+<meta property="og:url" content="https://arvinljw.github.io/2018/07/04/git常用操作/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。 我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。 经过整理发现代码混淆可以分为三部分：  基本指令以及一些固定不混淆的代码； 某些第三方包； 自己书写的一些不要混淆的代码。  注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根">
+<meta property="og:description" content="git在代码托管，协同开发中堪称利器，虽然以前也一直在使用，但是对于命令不是很熟悉，每次遇到相应的操作都要去搜一下，这次就在这里总结一下常用的操作方法。下边的命令都可以自己在本地创建一个文件夹，然后初始化，然后在里边操作文件的变化进行练习。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-13T10:15:22.186Z">
+<meta property="og:updated_time" content="2018-07-20T08:24:49.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android代码混淆">
-<meta name="twitter:description" content="最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。 我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。 经过整理发现代码混淆可以分为三部分：  基本指令以及一些固定不混淆的代码； 某些第三方包； 自己书写的一些不要混淆的代码。  注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根">
+<meta name="twitter:title" content="git常用操作">
+<meta name="twitter:description" content="git在代码托管，协同开发中堪称利器，虽然以前也一直在使用，但是对于命令不是很熟悉，每次遇到相应的操作都要去搜一下，这次就在这里总结一下常用的操作方法。下边的命令都可以自己在本地创建一个文件夹，然后初始化，然后在里边操作文件的变化进行练习。">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -169,160 +169,108 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android代码混淆" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-git常用操作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android代码混淆
+      git常用操作
     </h1>
   
 
         
-        <a href="/2017/04/10/Android代码混淆/" class="archive-article-date">
-  	<time datetime="2017-04-10T03:33:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
+        <a href="/2018/07/04/git常用操作/" class="archive-article-date">
+  	<time datetime="2018-07-04T08:56:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在研究apk瘦身时，发现代码混淆有很大作用，所以就去简单研究了一下。</p>
-<p>我认为，代码混淆可以保护核心功能不泄漏以及apk瘦身；但是也有个缺点：就是人为的可能会把不能混淆的代码混淆，导致crash。</p>
-<p>经过整理发现代码混淆可以分为三部分：</p>
-<ul>
-<li>基本指令以及一些固定不混淆的代码；</li>
-<li>某些第三方包；</li>
-<li>自己书写的一些不要混淆的代码。</li>
-</ul>
-<p><strong>注：其中第二部分，可以根据情况扩展或去掉某些未曾用到的指令；第三部分需要根据自己的情况去添加；</strong></p>
+        <p>git在代码托管，协同开发中堪称利器，虽然以前也一直在使用，但是对于命令不是很熟悉，每次遇到相应的操作都要去搜一下，这次就在这里总结一下常用的操作方法。下边的命令都可以自己在本地创建一个文件夹，然后初始化，然后在里边操作文件的变化进行练习。</p>
 <a id="more"></a>
-<h2 id="代码混淆"><a href="#代码混淆" class="headerlink" title="代码混淆"></a>代码混淆</h2><p>俗话说，授人以鱼不如授人以渔，但是先有鱼总是好的，所以接下来就会先介绍一下代码混淆的基本使用。</p>
-<h3 id="鱼"><a href="#鱼" class="headerlink" title="鱼"></a>鱼</h3><h4 id="1、开启代码混淆"><a href="#1、开启代码混淆" class="headerlink" title="1、开启代码混淆"></a>1、开启代码混淆</h4><p>在app module下的gradle文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled true</span><br><span class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>默认minifyEnable是false，我们只需要改为true就开启了混淆。这里只需要在release的时候开启混淆即可，代码混淆会加长APK的生成时间，而且android studio2.0以后使用instance run会停用ProGuard。</p>
-<p>这时候打包，安装，如果引入了其他第三方的代码的话，不出意外时会crash的，虽然proguard-android.txt文件中已经包含了一些不混淆的指令了，那些事系统常规的指令，对于自定义的一些指令就需要自己在app下的proguard-rules.pro文件中去定义。</p>
-<h4 id="2、proguard模板"><a href="#2、proguard模板" class="headerlink" title="2、proguard模板"></a>2、proguard模板</h4><p><a href="https://github.com/arvinljw/AFBaseLibrary/blob/master/afbaselibrary/proguard-rules.pro" target="_blank" rel="noopener">proguard-rules.pro</a></p>
-<p>里边的内容我也用分割线做了一下简单的分割，包含的也是上文说到的三部分，下面简单介绍一下具体包含的内容。</p>
+<h2 id="git-常用操作"><a href="#git-常用操作" class="headerlink" title="git 常用操作"></a>git 常用操作</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
+<li><p><strong>git init</strong>: </p>
+<p>  初始化文件夹为git仓库</p>
+</li>
+<li><p><strong>git status</strong>: </p>
+<p>  查看文件状态</p>
+</li>
+<li><p><strong>git log</strong>: </p>
+<p>  查看提交日志</p>
+</li>
+</ul>
+<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><ul>
+<li><p><strong>git add 文件名 或 git add .</strong>: </p>
+<p>  添加文件到暂存区</p>
+</li>
+<li><p><strong>git commit -m “commit log”</strong>: </p>
+<p>  将暂存区的文件提交到仓库</p>
+</li>
+</ul>
 <ul>
-<li>基本指令：包含了压缩级别，忽略警告，混淆警告等；</li>
-<li>固定不混淆的代码：包含继承四大组件中的内容，support包，view相关、序列化相关、R文件、枚举、native方法等；</li>
-<li>第三方包：这一部分需要根据项目情况去处理，这里支持了我们公司常用框架里边的第三方包；</li>
-<li>自己书写的不需要混淆的代码：这里就需要根据自己的情况去书写了，而我们只需要知道哪些东西是不能混淆的就能编写了。</li>
+<li><p><strong>git commit -am “commit log”</strong>: </p>
+<p>  将修改或未添加的文件直接提交到仓库</p>
+</li>
+<li><p><strong>git commit –amend</strong>: </p>
+<p>  在当前状态下，只文件修改内容</p>
+</li>
 </ul>
-<p>下面来说一下，混淆的规则：</p>
-<ul>
-<li>第三方库。一般都会提供混淆规则，如果没有提供，报错后，我们就可以保护报错的类，不让其混淆，实在不行就用最暴力的解决办法，把其全部代码都不混淆。</li>
-<li>运行时动态改变代码。一般例如反射，实体类。</li>
-<li>被JNI中调用的类。</li>
-<li>WebView中Js调用的方法。</li>
-<li>View相关的类和事件。</li>
+<h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><ul>
+<li><p><strong>git checkout – 文件名 或 git checkout – .</strong>: </p>
+<p>  拉取暂存区的文件并替换工作区的文件</p>
+</li>
+<li><p><strong>git reset HEAD 文件名</strong>: </p>
+<p>  将当前版本的文件还原到暂存区</p>
+</li>
+<li><p><strong>git reset 提交的序列号 文件名</strong>: </p>
+<p>  将某个版本的内容还原到暂存区</p>
+</li>
+<li><p><strong>git reset –soft HEAD~数字</strong>: </p>
+<p>  表示回退到某前某个版本，一个就回退一个，修改内容保留在暂存区</p>
+</li>
+<li><p><strong>git reset –hard HEAD~数字</strong>：</p>
+<p>  表示回退到前某个版本，并删除这期间的所有改变</p>
+</li>
 </ul>
-<p>这两步过后，基本就完成了代码混淆，运行后发现问题再解决即可，下面就开始介绍一些混淆中的语法。</p>
-<h3 id="渔"><a href="#渔" class="headerlink" title="渔"></a>渔</h3><h4 id="1、常用命令"><a href="#1、常用命令" class="headerlink" title="1、常用命令"></a>1、常用命令</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-keep</td>
-<td style="text-align:center">防止该类所有内容被移除或重命名</td>
-</tr>
-<tr>
-<td>-keepnames</td>
-<td style="text-align:center">防止类和成员被重命名</td>
-</tr>
-<tr>
-<td>-keepclassmembers</td>
-<td style="text-align:center">防止成员被移除或者被重命名</td>
-</tr>
-<tr>
-<td>-keepclasseswithmembers</td>
-<td style="text-align:center">防止拥有该成员的类和成员被移除或者被重命名</td>
-</tr>
-<tr>
-<td>-keepclasseswithmembernames</td>
-<td style="text-align:center">防止拥有该成员的类和成员被重命名</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2、常用规则"><a href="#2、常用规则" class="headerlink" title="2、常用规则"></a>2、常用规则</h4><ul>
-<li>类：需要使用完全限定名；</li>
-<li>*：通配符，任意字符串，不包含包名分隔符（.）；</li>
-<li>**：通配符，任意字符串，包含包名分隔符（.）；</li>
-<li>extends：继承某类的类；</li>
-<li>implement：实现某接口的类；</li>
-<li>$：内部类；</li>
-<li>&lt;init&gt;：所有构造方法；</li>
-<li>&lt;fields&gt;：所有成员变量；</li>
-<li>&lt;methods&gt;：所有方法；</li>
-<li>…：任意参数；</li>
-<li>修饰符：public private protected</li>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><ul>
+<li><p><strong>git branch</strong>: </p>
+<p>  查看分支</p>
+</li>
+<li><p><strong>git branch 分支名</strong>: </p>
+<p>  创建分支 </p>
+</li>
+<li><p><strong>git checkout 分支名</strong>: </p>
+<p>  切换分支</p>
+</li>
+<li><p><strong>git checkout -b 分支名</strong>: </p>
+<p>  创建分支并切换到分支</p>
+</li>
 </ul>
-<h4 id="3、例子"><a href="#3、例子" class="headerlink" title="3、例子"></a>3、例子</h4><table>
-<thead>
-<tr>
-<th>含义</th>
-<th>指令语句</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>不混淆某个类</td>
-<td>-keep public class packageName.className{ *; }</td>
-</tr>
-<tr>
-<td>不混淆某个包的所有类</td>
-<td>-keep class packageName.**{ *; }</td>
-</tr>
-<tr>
-<td>不混淆某个类的子类</td>
-<td>-keep public class * extends packageName.className{ *; }</td>
-</tr>
-<tr>
-<td>不混淆某个接口的子类</td>
-<td>-keep public class * implements packageName.className{ *; }</td>
-</tr>
-<tr>
-<td>不混淆某个类的构造方法</td>
-<td>-keepclassmembers class packageName.className{ public <init>(); }</init></td>
-</tr>
-<tr>
-<td>不混淆某个类的某个方法</td>
-<td>-keepclassmembers class packageName.className{ public void methodName(…); }</td>
-</tr>
-<tr>
-<td>不混淆某个类的内部类</td>
-<td>-keep class packageName.className$*{ *; }</td>
-</tr>
-</tbody>
-</table>
-<h3 id="混淆的步骤"><a href="#混淆的步骤" class="headerlink" title="混淆的步骤"></a>混淆的步骤</h3><p>上文中介绍了代码的混淆，其实Android的混淆中还包括了资源压缩，整个过程包括：压缩、优化、混淆、以及预校验，其中第四步在Android中可不要，默认是去掉了的，另外三个都是默认开启的。</p>
-<ul>
-<li>压缩：会移除未被使用的类和成员变量，会在优化后再次被执行；</li>
-<li>优化：在字节码级别执行优化，让应用运行的更快；</li>
-<li>混淆：增大反编译难度，类和类成员会被随机命名，除非用keep保护。</li>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><ul>
+<li><p><strong>git merge 分支名</strong>: </p>
+<p>  从另一个分支合并到当前分支</p>
+</li>
+<li><p><strong>git stash</strong>: </p>
+<p>  保存当前工作区改变的内容</p>
+</li>
+<li><p><strong>git stash list</strong>: </p>
+<p>  查看保存的stash列表</p>
+</li>
+<li><p><strong>git stash pop</strong>: </p>
+<p>  推出保存的最顶上的内容</p>
+</li>
+<li><p><strong>git stash pop stash@{数字}</strong>: </p>
+<p>  推出保存的某个stash的内容</p>
+</li>
 </ul>
-<p>下面再简单介绍一下再开启资源压缩，和开启代码混淆在一起加上shrinkResources true即可。但是这时候所有未被使用的资源都会被移除，但是有的资源我们可能是动态使用的，就需要保留。<br>那么就可以创建一个包含<resources>标签的XML文件，并使用tools:keep属性指定保留的资源，使用tools:discard属性指定要删除的资源；多个就使用逗号隔开即可，还可以使用*通配符。例如：</resources></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">	tools:keep=&quot;@layout/l_used*_c,@layout/l_used_a,@layout/l_used_b*&quot;</span><br><span class="line">	tools:discard=&quot;@layout/unused2&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>对于资源的保留，还有一个严格应用的检查，开启后，在使用Resources.getIdentifier()就可以根据动态生成的字符串查询资源名字，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name = String.format(&quot;img_%1d&quot;, angle + 1);</span><br><span class="line">res = getResources().getIdentifier(name, &quot;drawable&quot;, getPackageName());</span><br></pre></td></tr></table></figure>
-<p>使用方式也很简单，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    tools:shrinkMode=&quot;strict&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>到这里，混淆相关的就基本上介绍完了，然后再总结一下需要注意的东西：</p>
-<ul>
-<li>一定要根据混淆规则判断自己的代码是否需要混淆；</li>
-<li>测试的版本一定需要打包后的apk；</li>
+<h2 id="使用心得"><a href="#使用心得" class="headerlink" title="使用心得"></a>使用心得</h2><ul>
+<li>使用命令来查看当前状态，日志信息，分支比较方便</li>
+<li>使用命令来回退到某个版本比较方便</li>
+<li>更多的可以安装git相关的图形化界面去使用提交，合并，能直观的看到冲突并解决。</li>
 </ul>
-<p><em>还遗留的问题是：错误日志的定位问题？思路是根据输出的mapping文件去对应，没有详细的去落实，实际遇到了再补上具体的解决方案。</em></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://developer.android.com/studio/build/shrink-code.html" target="_blank" rel="noopener">压缩代码和资源</a></p>
-<p><a href="https://www.jianshu.com/p/158aa484da13" target="_blank" rel="noopener">写给Android开发者的混淆使用手册</a></p>
-<p><a href="https://www.jianshu.com/p/ab865bfde96f" target="_blank" rel="noopener">Android Studio代码混淆插件</a></p>
 
       
 
@@ -336,7 +284,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">git操作</a>
         		</li>
       		
 		</ul>
@@ -392,7 +340,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2017/04/10/Android代码混淆/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/07/04/git常用操作/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -406,18 +354,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/06/05/Android之ViewPager使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/12/Android学习之联系人列表/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Android之ViewPager使用
+          Android学习之联系人列表
         
       </div>
     </a>
   
   
-    <a href="/2017/02/20/Android消息机制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android消息机制</div>
+    <a href="/2018/06/26/Android学习之ConstraintLayout/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android学习之ConstraintLayout</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -444,7 +392,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码混淆"><span class="toc-number">1.</span> <span class="toc-text">代码混淆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#鱼"><span class="toc-number">1.1.</span> <span class="toc-text">鱼</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、开启代码混淆"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、开启代码混淆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、proguard模板"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、proguard模板</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渔"><span class="toc-number">1.2.</span> <span class="toc-text">渔</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、常用命令"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、常用命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、常用规则"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、常用规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、例子"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混淆的步骤"><span class="toc-number">1.3.</span> <span class="toc-text">混淆的步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">1.4.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-常用操作"><span class="toc-number">1.</span> <span class="toc-text">git 常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础"><span class="toc-number">1.1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交"><span class="toc-number">1.2.</span> <span class="toc-text">提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销"><span class="toc-number">1.3.</span> <span class="toc-text">撤销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支"><span class="toc-number">1.4.</span> <span class="toc-text">分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并"><span class="toc-number">1.5.</span> <span class="toc-text">合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用心得"><span class="toc-number">2.</span> <span class="toc-text">使用心得</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -469,7 +417,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://arvinljw.github.io/2017/04/10/Android代码混淆/",
+  id: "https://arvinljw.github.io/2018/07/04/git常用操作/",
   owner: 'arvinljw',
   repo: 'arvinljw.github.io',
   oauth: {
