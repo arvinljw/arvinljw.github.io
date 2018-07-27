@@ -17,10 +17,10 @@
 <meta property="og:description" content="RecyclerView提供了良好的设计，将各部分功能的实现都拆解开，方便自定义，虽然加大了使用难度，但是却大大的增加了可扩展性，稍微会使用之后，扩展起来非常的舒心。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-f3d66efc623b2a4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-9f3027374f295e4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-01f96bddaf73b96e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1638147-9e8a8158237c005c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/548">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-0c77a946eb7278c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-26T06:25:03.373Z">
+<meta property="og:updated_time" content="2018-07-27T07:15:30.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android学习之RecyclerView.IteDecoration实践">
 <meta name="twitter:description" content="RecyclerView提供了良好的设计，将各部分功能的实现都拆解开，方便自定义，虽然加大了使用难度，但是却大大的增加了可扩展性，稍微会使用之后，扩展起来非常的舒心。">
@@ -200,6 +200,7 @@ var _hmt = _hmt || [];
       
         <p>RecyclerView提供了良好的设计，将各部分功能的实现都拆解开，方便自定义，虽然加大了使用难度，但是却大大的增加了可扩展性，稍微会使用之后，扩展起来非常的舒心。</p>
 <a id="more"></a>
+<p><a href="https://github.com/arvinljw/ItemDecorationHelper" target="_blank" rel="noopener">项目地址</a></p>
 <p><strong>功能</strong>：适用于以下几种布局的分割线和粘性头部</p>
 <ul>
 <li>LinearLayoutManager</li>
@@ -209,7 +210,7 @@ var _hmt = _hmt || [];
 <p><strong>对于分割线，与大多数的实现不同，在GridLayoutManager和StaggeredGridLayoutManager布局时是平分Item的，分割线大的时候就能发现</strong></p>
 <p>先上效果图</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3157525-f3d66efc623b2a4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3157525-9f3027374f295e4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3157525-01f96bddaf73b96e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><em>注意：其中这三种布局的分割线不管是水平还是垂直方向都是支持的，但是带有header的只支持LinearLayoutManager的水平和垂直以及GridLayoutManager垂直方向</em></p>
 <p>还可以<a href="https://github.com/arvinljw/ItemDecorationHelper/tree/master/app/Demo.apk" target="_blank" rel="noopener">下载Demo</a>在手机上预览一下。</p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><strong>1、在根目录的build.gradle中加入如下配置</strong></p>
@@ -228,11 +229,12 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">itemDecoration = new ItemDecorationFactory.StickyDividerBuilder()</span><br><span class="line">        .dividerHeight(2)</span><br><span class="line">        .dividerColor(Color.parseColor(&quot;#D8D8D8&quot;))</span><br><span class="line">        .callback(new StickyDividerCallback() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public GroupData getGroupData(int position) &#123;</span><br><span class="line">                //生成GroupData</span><br><span class="line">                return data;</span><br><span class="line">            &#125;</span><br><span class="line">            @Override</span><br><span class="line">            public View getStickyHeaderView(int position) &#123;</span><br><span class="line">					//...生成headerView</span><br><span class="line">                return headerView;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).build(recyclerView);</span><br><span class="line">recyclerView.addItemDecoration(itemDecoration);</span><br></pre></td></tr></table></figure>
 <p>其中如果是粘性头部，需要自己生成GroupData和自定义View的设置，GroupData需要设置，<strong>分组标题，在分组中的位置以及该分组的长度</strong>；至于如何实现，需要根据数据格式定义不同的逻辑，可以参照<a href="https://github.com/arvinljw/ItemDecorationHelper/blob/master/app/src/main/java/net/arvin/itemdecorationhelper/sample/LinearActivity.java" target="_blank" rel="noopener">demo中的实现逻辑去获取</a>，该类的getItemDecoration方法。</p>
 <p><strong>对于分割线没啥说的，可以设置分割线的颜色和大小。</strong></p>
-<p>其中对于显示</p>
+<h4 id="默认头部"><a href="#默认头部" class="headerlink" title="默认头部"></a>默认头部</h4><p>其中对于显示分组头部，有一个默认实现DefaultHeaderCallBack，只需要重写分组数据即可。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">headerCallBack = new DefaultHeaderCallBack(this) &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public GroupData getGroupData(int position) &#123;</span><br><span class="line">        //生成GroupData</span><br><span class="line">        return data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="头部点击事件"><a href="#头部点击事件" class="headerlink" title="头部点击事件"></a>头部点击事件</h4><p>为头部增加点击事件，其中回调中的position是当前header所在的item的实际位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">((BaseStickyDividerItemDecoration) itemDecoration).setOnHeaderClickListener(new OnHeaderClickListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onHeaderClicked(int position) &#123;</span><br><span class="line">        //TODO</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><em>注意：在界面被销毁时，调用headerCallBack的onDestroy方法，避免内存泄漏。</em></p>
 <h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><ul>
-<li>为粘性头部增加点击事件</li>
-<li>增加默认的头部，只含文本</li>
-<li>增加对头部View的缓存优化</li>
 <li>优化实现方式</li>
 </ul>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>继承ItemDecoration，然后重写<code>getItemOffsets</code>和<code>onDraw</code>方法，实现分割线的绘制，通过重写<code>onDrawOver</code>实现粘性头部。</p>
@@ -243,7 +245,11 @@ var _hmt = _hmt || [];
 <p><img src="https://upload-images.jianshu.io/upload_images/3157525-0c77a946eb7278c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>具体的难点就在这两个位置。</p>
 <p>至于粘性头部，核心逻辑就是对数据的分组以及头部的偏移计算和绘制。也是万变不离其中。具体的实现请参考源码，含有一定的注释。</p>
-<h3 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h3><p>在实现过程中参考了很多文章，如果没有注明来源的，麻烦指出来，会直接加上引用来源的。</p>
+<h3 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h3><p><a href="https://blog.csdn.net/qian520ao/article/details/76167193" target="_blank" rel="noopener">RecyclerView 悬浮/粘性头部——StickyHeaderDecoration</a></p>
+<p><a href="https://www.jianshu.com/p/b335b620af39" target="_blank" rel="noopener">【Android】RecyclerView：打造悬浮效果</a></p>
+<p><a href="https://blog.csdn.net/qq_27192795/article/details/80563487" target="_blank" rel="noopener">RecyclerView的 GridItemDecoration等分itemView</a></p>
+<p>在实现过程中参考了很多文章，如果没有注明来源的，麻烦指出来，会直接加上引用来源的。</p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p><a href="https://github.com/arvinljw/ItemDecorationHelper" target="_blank" rel="noopener">项目地址</a></p>
 
       
 
@@ -356,7 +362,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TODO"><span class="toc-number">2.</span> <span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#感谢"><span class="toc-number">4.</span> <span class="toc-text">感谢</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#默认头部"><span class="toc-number">1.1.</span> <span class="toc-text">默认头部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#头部点击事件"><span class="toc-number">1.2.</span> <span class="toc-text">头部点击事件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TODO"><span class="toc-number">2.</span> <span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#感谢"><span class="toc-number">4.</span> <span class="toc-text">感谢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码"><span class="toc-number">5.</span> <span class="toc-text">源码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -484,6 +490,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">开源库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码分析</a>
               </li>
              
@@ -496,7 +506,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">开源库</a>
+                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,23 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">git操作</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">项目经验</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
