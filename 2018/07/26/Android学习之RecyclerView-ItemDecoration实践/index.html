@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Android学习之RecyclerView.IteDecoration实践 | arvinljwBlog</title>
+  <title>Android学习之RecyclerView.ItemDecoration实践 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="RecyclerView提供了良好的设计，将各部分功能的实现都拆解开，方便自定义，虽然加大了使用难度，但是却大大的增加了可扩展性，稍微会使用之后，扩展起来非常的舒心。">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android学习之RecyclerView.IteDecoration实践">
-<meta property="og:url" content="https://arvinljw.github.io/2018/07/26/Android学习之RecyclerView-IteDecoration实践/index.html">
+<meta property="og:title" content="Android学习之RecyclerView.ItemDecoration实践">
+<meta property="og:url" content="https://arvinljw.github.io/2018/07/26/Android学习之RecyclerView-ItemDecoration实践/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
 <meta property="og:description" content="RecyclerView提供了良好的设计，将各部分功能的实现都拆解开，方便自定义，虽然加大了使用难度，但是却大大的增加了可扩展性，稍微会使用之后，扩展起来非常的舒心。">
 <meta property="og:locale" content="default">
@@ -20,9 +20,9 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-01f96bddaf73b96e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1638147-9e8a8158237c005c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/548">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-0c77a946eb7278c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-27T07:15:30.103Z">
+<meta property="og:updated_time" content="2018-07-27T07:18:27.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android学习之RecyclerView.IteDecoration实践">
+<meta name="twitter:title" content="Android学习之RecyclerView.ItemDecoration实践">
 <meta name="twitter:description" content="RecyclerView提供了良好的设计，将各部分功能的实现都拆解开，方便自定义，虽然加大了使用难度，但是却大大的增加了可扩展性，稍微会使用之后，扩展起来非常的舒心。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3157525-f3d66efc623b2a4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
@@ -178,19 +178,19 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android学习之RecyclerView-IteDecoration实践" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Android学习之RecyclerView-ItemDecoration实践" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android学习之RecyclerView.IteDecoration实践
+      Android学习之RecyclerView.ItemDecoration实践
     </h1>
   
 
         
-        <a href="/2018/07/26/Android学习之RecyclerView-IteDecoration实践/" class="archive-article-date">
+        <a href="/2018/07/26/Android学习之RecyclerView-ItemDecoration实践/" class="archive-article-date">
   	<time datetime="2018-07-26T06:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
 </a>
         
@@ -319,7 +319,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/07/26/Android学习之RecyclerView-IteDecoration实践/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/07/26/Android学习之RecyclerView-ItemDecoration实践/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -387,7 +387,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://arvinljw.github.io/2018/07/26/Android学习之RecyclerView-IteDecoration实践/",
+  id: "https://arvinljw.github.io/2018/07/26/Android学习之RecyclerView-ItemDecoration实践/",
   owner: 'arvinljw',
   repo: 'arvinljw.github.io',
   oauth: {
@@ -490,6 +490,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">开源库</a>
               </li>
              
@@ -498,15 +510,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《Thinking in Java》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,10 +535,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">git操作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">项目经验</a>
               </li>
             
             <div class="clearfix"></div>
