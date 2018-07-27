@@ -18,9 +18,10 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-f3d66efc623b2a4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-01f96bddaf73b96e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://jitpack.io/v/arvinljw/ItemDecorationHelper.svg">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1638147-9e8a8158237c005c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/548">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-0c77a946eb7278c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-27T07:18:27.466Z">
+<meta property="og:updated_time" content="2018-07-27T07:29:07.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android学习之RecyclerView.ItemDecoration实践">
 <meta name="twitter:description" content="RecyclerView提供了良好的设计，将各部分功能的实现都拆解开，方便自定义，虽然加大了使用难度，但是却大大的增加了可扩展性，稍微会使用之后，扩展起来非常的舒心。">
@@ -213,10 +214,11 @@ var _hmt = _hmt || [];
 <p><img src="https://upload-images.jianshu.io/upload_images/3157525-01f96bddaf73b96e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><em>注意：其中这三种布局的分割线不管是水平还是垂直方向都是支持的，但是带有header的只支持LinearLayoutManager的水平和垂直以及GridLayoutManager垂直方向</em></p>
 <p>还可以<a href="https://github.com/arvinljw/ItemDecorationHelper/tree/master/app/Demo.apk" target="_blank" rel="noopener">下载Demo</a>在手机上预览一下。</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><strong>1、在根目录的build.gradle中加入如下配置</strong></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><a href="https://jitpack.io/#arvinljw/ItemDecorationHelper" target="_blank" rel="noopener"><img src="https://jitpack.io/v/arvinljw/ItemDecorationHelper.svg" alt=""></a></p>
+<p><strong>1、在根目录的build.gradle中加入如下配置</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        ...</span><br><span class="line">        maven &#123; url &apos;https://jitpack.io&apos; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2、在要用的module中增加如下引用</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    implementation &apos;com.github.arvinljw:ItemDecorationHelper:v1.0.0&apos;</span><br><span class="line">    implementation &apos;com.android.support:recyclerview-v7:&apos;.concat(supportVersion)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    implementation &apos;com.github.arvinljw:ItemDecorationHelper:v1.0.1&apos;</span><br><span class="line">    implementation &apos;com.android.support:recyclerview-v7:&apos;.concat(supportVersion)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><em>其中supportVersion换成自己app中的版本即可</em></p>
 <p><strong>3、为RecyclerView添加ItemDecoration</strong>，通过ItemDecorationFactory生成包括分割线的ItemDecoration和粘性头部的ItemDecoration，后者包含了分割线</p>
 <ul>
@@ -234,6 +236,7 @@ var _hmt = _hmt || [];
 <h4 id="头部点击事件"><a href="#头部点击事件" class="headerlink" title="头部点击事件"></a>头部点击事件</h4><p>为头部增加点击事件，其中回调中的position是当前header所在的item的实际位置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">((BaseStickyDividerItemDecoration) itemDecoration).setOnHeaderClickListener(new OnHeaderClickListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onHeaderClicked(int position) &#123;</span><br><span class="line">        //TODO</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><em>注意：在界面被销毁时，调用headerCallBack的onDestroy方法，避免内存泄漏。</em></p>
+<h4 id="代码混淆"><a href="#代码混淆" class="headerlink" title="代码混淆"></a>代码混淆</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep class net.arvin.itemdecorationhelper.**&#123;*;&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><ul>
 <li>优化实现方式</li>
 </ul>
@@ -250,6 +253,7 @@ var _hmt = _hmt || [];
 <p><a href="https://blog.csdn.net/qq_27192795/article/details/80563487" target="_blank" rel="noopener">RecyclerView的 GridItemDecoration等分itemView</a></p>
 <p>在实现过程中参考了很多文章，如果没有注明来源的，麻烦指出来，会直接加上引用来源的。</p>
 <h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p><a href="https://github.com/arvinljw/ItemDecorationHelper" target="_blank" rel="noopener">项目地址</a></p>
+<p><em>之后文章的更新都以项目的README为准。</em></p>
 
       
 
@@ -362,7 +366,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#默认头部"><span class="toc-number">1.1.</span> <span class="toc-text">默认头部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#头部点击事件"><span class="toc-number">1.2.</span> <span class="toc-text">头部点击事件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TODO"><span class="toc-number">2.</span> <span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#感谢"><span class="toc-number">4.</span> <span class="toc-text">感谢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码"><span class="toc-number">5.</span> <span class="toc-text">源码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#默认头部"><span class="toc-number">1.1.</span> <span class="toc-text">默认头部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#头部点击事件"><span class="toc-number">1.2.</span> <span class="toc-text">头部点击事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码混淆"><span class="toc-number">1.3.</span> <span class="toc-text">代码混淆</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TODO"><span class="toc-number">2.</span> <span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#感谢"><span class="toc-number">4.</span> <span class="toc-text">感谢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码"><span class="toc-number">5.</span> <span class="toc-text">源码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -490,18 +494,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">项目经验</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">开源库</a>
               </li>
              
@@ -510,7 +502,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《Thinking in Java》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">《Effective Java》</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,6 +535,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">git操作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目经验</a>
               </li>
             
             <div class="clearfix"></div>
