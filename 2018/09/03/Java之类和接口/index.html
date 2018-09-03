@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Archives | arvinljwBlog</title>
+  <title>Java之类和接口 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android、Python等学习总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="arvinljwBlog">
-<meta property="og:url" content="https://arvinljw.github.io/archives/index.html">
+  <meta name="description" content="在Java开发中，最常见的就是类和接口了，这是Java的核心，在这一章中也给在使用中提供了某些指导原则，让设计更合理。">
+<meta name="keywords" content="Java,《Effective Java》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java之类和接口">
+<meta property="og:url" content="https://arvinljw.github.io/2018/09/03/Java之类和接口/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="Android、Python等学习总结">
+<meta property="og:description" content="在Java开发中，最常见的就是类和接口了，这是Java的核心，在这一章中也给在使用中提供了某些指导原则，让设计更合理。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-03T10:01:18.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arvinljwBlog">
-<meta name="twitter:description" content="Android、Python等学习总结">
+<meta name="twitter:title" content="Java之类和接口">
+<meta name="twitter:description" content="在Java开发中，最常见的就是类和接口了，这是Java的核心，在这一章中也给在使用中提供了某些指导原则，让设计更合理。">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -171,36 +173,83 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Java之类和接口" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Java之类和接口
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/03/Java之类和接口/" class="archive-article-date">
+
+        
+        <a href="/2018/09/03/Java之类和接口/" class="archive-article-date">
   	<time datetime="2018-09-03T08:16:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/03/Java之类和接口/">Java之类和接口</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Java开发中，最常见的就是类和接口了，这是Java的核心，在这一章中也给在使用中提供了某些指导原则，让设计更合理。</p>
+<a id="more"></a>
+<h2 id="类和成员的可访问性最小化"><a href="#类和成员的可访问性最小化" class="headerlink" title="类和成员的可访问性最小化"></a>类和成员的可访问性最小化</h2><p>站在使用者的角度来看，对于某个模块功能，使用时我不需要知道内部是如何实现的，只需要给我一个接口，我调用就能完事是最好的，将内部的实现隐藏。这就是信息隐藏或封装。</p>
+<p>这个设计原则可以解除当前模块与其他模块的耦合关系，也能让内部的实现能更好的修改和重构，而且暴露的接口越多，那么需要维护的功能也会越多。</p>
+<p>对于所有的字段、方法、内部类和内部接口都有四种访问级别：</p>
+<ul>
+<li>private</li>
+<li>package-private</li>
+<li>protected</li>
+<li>public</li>
+</ul>
+<p>第二种没有关键字，不写限制就是包级私有，即缺省。</p>
+<h2 id="在公有类种使用访问方法而非公有域"><a href="#在公有类种使用访问方法而非公有域" class="headerlink" title="在公有类种使用访问方法而非公有域"></a>在公有类种使用访问方法而非公有域</h2><p>如果直接访问公有域，会存在无法添加辅助功能，虽然写起来可能简便一点，但是在设计上，是不合理的。总之不要暴露可变的域。</p>
+<h2 id="使可变性最小化"><a href="#使可变性最小化" class="headerlink" title="使可变性最小化"></a>使可变性最小化</h2><p>让实例成为不可变的，最大的好处就是线程安全，对于这个实例可以任意使用。</p>
+<p>而要让类成为不可变需要满足以下规则：</p>
+<ul>
+<li>不要提供任何修改对象状态的方法</li>
+<li>保证类不能被扩展，使用finial关键字</li>
+<li>使所有域都是final的</li>
+<li>使所有域都是private的</li>
+<li>确保任何可变组件的互斥访问，即保证不能让类的方法直接获取到指向可变对象的域（即某个类的实例）</li>
+</ul>
+<p>当然不可变类的缺点就是对于每个不同的值都需要一个单独的对象。有时候创建这种对象的代价还不低。</p>
+<p>如果类不能做成不可变的，那么也应该尽可能的减小可变的因素。</p>
+<h2 id="复合优先于继承"><a href="#复合优先于继承" class="headerlink" title="复合优先于继承"></a>复合优先于继承</h2><h2 id="要么为继承而设计并提供文档说明，要么就不要使用继承"><a href="#要么为继承而设计并提供文档说明，要么就不要使用继承" class="headerlink" title="要么为继承而设计并提供文档说明，要么就不要使用继承"></a>要么为继承而设计并提供文档说明，要么就不要使用继承</h2><p>不是说继承不好，而是在多人合作的时候，错误的使用了继承。如果在一个模块功能的开发时，只有一个人开发或者说有良好的文档，在可以使用继承的情况下使用能极大程度的简化某些功能开发。</p>
+<p>而使用复合，相当于新建一个类，将另一个类的功能包装起来。</p>
+<p>而类继承的文档需要包含可覆盖的方法调用了其他哪些可覆盖的方法，并说明在什么情况下去覆盖。</p>
+<p>总而言之，在目前看来只有在你能掌控的范围和在有明确说明或了解的情况下使用继承，其他时候使用复合更合适，使用复合的时候相当于提供一个辅助类，帮助实现这些接口。</p>
+<h2 id="接口优于抽象类"><a href="#接口优于抽象类" class="headerlink" title="接口优于抽象类"></a>接口优于抽象类</h2><p>使用接口来定义功能的优点如下：</p>
+<ul>
+<li>现有类可很容易被更新，实现新的接口</li>
+<li>接口是定义混合类型的理想选择</li>
+<li>接口允许我们构造非层次的类型框架</li>
+</ul>
+<h2 id="接口只用于定义类型"><a href="#接口只用于定义类型" class="headerlink" title="接口只用于定义类型"></a>接口只用于定义类型</h2><p>不要将接口用来定义常量，要定义这些常量应该放在一个不可实例化的工具类中。</p>
+<h2 id="类层次优于标签类"><a href="#类层次优于标签类" class="headerlink" title="类层次优于标签类"></a>类层次优于标签类</h2><p>标签类就是那种通过某个字段去判断，使用if-else或者switch-case去判断实现逻辑。</p>
+<p>这是不良的代码。这时候可以使用继承，不同的子类表示不同的逻辑。</p>
+<h2 id="用函数对象表示策略"><a href="#用函数对象表示策略" class="headerlink" title="用函数对象表示策略"></a>用函数对象表示策略</h2><p>例如排序策略，使用了Comparable接口，里边就一个方法compareTo(T t1,T t2)，其中T就是一个泛型，代表传入的一个对象，这个对象引用具体的操作比较就是比较开放的，可自行实现。</p>
+<h2 id="优先考虑静态成员类"><a href="#优先考虑静态成员类" class="headerlink" title="优先考虑静态成员类"></a>优先考虑静态成员类</h2><p>有四种嵌套类：</p>
+<ul>
+<li>静态成员类</li>
+<li>非静态成员类</li>
+<li>匿名类</li>
+<li>局部类</li>
+</ul>
+<p>除了第一种，其他三种都叫做内部类。第一种最简单，完全可以看作是普通的类对待。</p>
+<p>非静态成员类：每个内部类都能独立继承自一个接口的实现，所以无论外围类是否已经继承或实现了某个接口，对于内部类都是没有影响的。所以通过内部类，就能继承多个非接口的类。也可以在一个类中让多个内部类对一个接口进行不同的实现。</p>
+<p>匿名类在回调中常常用到，但是注意异步回调时的内存泄漏问题，应保证回调与持有的类实例生命周期相同。</p>
+<p>局部类：例如在方法中定义一个类，去使用，这种类使用场景较少。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -216,384 +265,134 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/09/03/Java之类和接口/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/31/Android-JNI开发系列之Java与C相互调用/" class="archive-article-date">
-  	<time datetime="2018-08-31T02:03:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/31/Android-JNI开发系列之Java与C相互调用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android JNI开发系列之Java与C相互调用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/31/Android-JNI开发系列之Java与C相互调用/">Android JNI开发系列之Java与C相互调用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#类和成员的可访问性最小化"><span class="toc-number">1.</span> <span class="toc-text">类和成员的可访问性最小化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在公有类种使用访问方法而非公有域"><span class="toc-number">2.</span> <span class="toc-text">在公有类种使用访问方法而非公有域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使可变性最小化"><span class="toc-number">3.</span> <span class="toc-text">使可变性最小化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合优先于继承"><span class="toc-number">4.</span> <span class="toc-text">复合优先于继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#要么为继承而设计并提供文档说明，要么就不要使用继承"><span class="toc-number">5.</span> <span class="toc-text">要么为继承而设计并提供文档说明，要么就不要使用继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接口优于抽象类"><span class="toc-number">6.</span> <span class="toc-text">接口优于抽象类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接口只用于定义类型"><span class="toc-number">7.</span> <span class="toc-text">接口只用于定义类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类层次优于标签类"><span class="toc-number">8.</span> <span class="toc-text">类层次优于标签类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用函数对象表示策略"><span class="toc-number">9.</span> <span class="toc-text">用函数对象表示策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优先考虑静态成员类"><span class="toc-number">10.</span> <span class="toc-text">优先考虑静态成员类</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/29/Android-JNI开发系列之配置/" class="archive-article-date">
-  	<time datetime="2018-08-29T09:39:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/29/Android-JNI开发系列之配置/">Android JNI开发系列之配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/26/Android学习之RecyclerView-ItemDecoration实践/" class="archive-article-date">
-  	<time datetime="2018-07-26T06:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/26/Android学习之RecyclerView-ItemDecoration实践/">Android学习之RecyclerView.ItemDecoration实践</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/18/MySQL基础语句/" class="archive-article-date">
-  	<time datetime="2018-07-18T01:12:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/18/MySQL基础语句/">MySQL基础语句</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术杂谈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/Android学习之联系人列表/" class="archive-article-date">
-  	<time datetime="2018-07-12T09:03:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/Android学习之联系人列表/">Android学习之联系人列表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/04/git常用操作/" class="archive-article-date">
-  	<time datetime="2018-07-04T08:56:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/04/git常用操作/">git常用操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术杂谈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">git操作</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/26/Android学习之ConstraintLayout/" class="archive-article-date">
-  	<time datetime="2018-06-26T09:54:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/26/Android学习之ConstraintLayout/">Android学习之ConstraintLayout</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/25/Java之字符串/" class="archive-article-date">
-  	<time datetime="2018-06-25T03:02:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/25/Java之字符串/">Java之字符串</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《Thinking in Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/23/Java之类的通用方法/" class="archive-article-date">
-  	<time datetime="2018-06-23T13:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/23/Java之类的通用方法/">Java之类的通用方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">《Effective Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://arvinljw.github.io/2018/09/03/Java之类和接口/",
+  owner: 'arvinljw',
+  repo: 'arvinljw.github.io',
+  oauth: {
+    client_id: '173013408c3102aeca94',
+    client_secret: '0e42e5ac34a4333d544cd23cf0010b4ea4e25123',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -617,8 +416,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

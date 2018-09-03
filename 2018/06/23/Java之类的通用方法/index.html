@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Archives | arvinljwBlog</title>
+  <title>Java之类的通用方法 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android、Python等学习总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="arvinljwBlog">
-<meta property="og:url" content="https://arvinljw.github.io/archives/index.html">
+  <meta name="description" content="在Java类中，每个类都继承自Object类，它的可重写的方法中equals、hashCode、toString、clone等方法在实际应用中都会用到，而对于如何重写也是比较重要的，因为它会对HashMap、List之类的现有类的使用有影响。">
+<meta name="keywords" content="Java,《Effective Java》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java之类的通用方法">
+<meta property="og:url" content="https://arvinljw.github.io/2018/06/23/Java之类的通用方法/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="Android、Python等学习总结">
+<meta property="og:description" content="在Java类中，每个类都继承自Object类，它的可重写的方法中equals、hashCode、toString、clone等方法在实际应用中都会用到，而对于如何重写也是比较重要的，因为它会对HashMap、List之类的现有类的使用有影响。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-03T08:15:17.650Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arvinljwBlog">
-<meta name="twitter:description" content="Android、Python等学习总结">
+<meta name="twitter:title" content="Java之类的通用方法">
+<meta name="twitter:description" content="在Java类中，每个类都继承自Object类，它的可重写的方法中equals、hashCode、toString、clone等方法在实际应用中都会用到，而对于如何重写也是比较重要的，因为它会对HashMap、List之类的现有类的使用有影响。">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -171,398 +173,87 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java之类的通用方法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/03/Java之类和接口/" class="archive-article-date">
-  	<time datetime="2018-09-03T08:16:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/03/Java之类和接口/">Java之类和接口</a>
+    <h1 class="article-title" itemprop="name">
+      Java之类的通用方法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">《Effective Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/31/Android-JNI开发系列之Java与C相互调用/" class="archive-article-date">
-  	<time datetime="2018-08-31T02:03:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/31/Android-JNI开发系列之Java与C相互调用/">Android JNI开发系列之Java与C相互调用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/29/Android-JNI开发系列之配置/" class="archive-article-date">
-  	<time datetime="2018-08-29T09:39:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/29/Android-JNI开发系列之配置/">Android JNI开发系列之配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/26/Android学习之RecyclerView-ItemDecoration实践/" class="archive-article-date">
-  	<time datetime="2018-07-26T06:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/26/Android学习之RecyclerView-ItemDecoration实践/">Android学习之RecyclerView.ItemDecoration实践</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/18/MySQL基础语句/" class="archive-article-date">
-  	<time datetime="2018-07-18T01:12:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/18/MySQL基础语句/">MySQL基础语句</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术杂谈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/Android学习之联系人列表/" class="archive-article-date">
-  	<time datetime="2018-07-12T09:03:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/Android学习之联系人列表/">Android学习之联系人列表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/04/git常用操作/" class="archive-article-date">
-  	<time datetime="2018-07-04T08:56:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/04/git常用操作/">git常用操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术杂谈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">git操作</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/26/Android学习之ConstraintLayout/" class="archive-article-date">
-  	<time datetime="2018-06-26T09:54:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/26/Android学习之ConstraintLayout/">Android学习之ConstraintLayout</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/25/Java之字符串/" class="archive-article-date">
-  	<time datetime="2018-06-25T03:02:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/25/Java之字符串/">Java之字符串</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《Thinking in Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/23/Java之类的通用方法/" class="archive-article-date">
+        
+        <a href="/2018/06/23/Java之类的通用方法/" class="archive-article-date">
   	<time datetime="2018-06-23T13:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/23/Java之类的通用方法/">Java之类的通用方法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Java类中，每个类都继承自Object类，它的可重写的方法中equals、hashCode、toString、clone等方法在实际应用中都会用到，而对于如何重写也是比较重要的，因为它会对HashMap、List之类的现有类的使用有影响。</p>
+<a id="more"></a>
+<h2 id="equals方法"><a href="#equals方法" class="headerlink" title="equals方法"></a>equals方法</h2><p>对于equals方法，在不重写时在以下几个情况中是可以的。</p>
+<ul>
+<li>类的实例是唯一的。</li>
+<li>不关心类是否存在逻辑相等。</li>
+<li>父类已经重写equals方法，父类的逻辑对子类一样合适。</li>
+<li>不会使用到equals方法。</li>
+</ul>
+<p>这些也可以根据源码直接理解到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean equals(Object obj) &#123;</span><br><span class="line">    return (this == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>源码的实现非常简单，其实就是当两个实例的内存地址相同时才相同，也就是说他们就是同一个实例。</p>
+<p>而当我们需要实现逻辑相同的时候，这时候就需要重写equals方法。<em>除枚举类型意外，因为枚举的每一个值值存在一个实例</em>。除此之外还得重写hashCode方法，这个就在稍后再说。</p>
+<p><strong>重写了equals方法的类具有：</strong></p>
+<ul>
+<li>自反性：对于任何非null的引用x，都有x.equals(x)返回true</li>
+<li>对称性：对于任何非null的引用x和y，当且仅当x.equals(y)返回true时，y.equals(x)也返回true</li>
+<li>传递性：对于任何非null的引用x、y、z，如果x.equals(y)返回true且y.equals(z)返回true，那么x.equals(z)也必须返回true</li>
+<li>一致性：对于任何非null的引用x和y，只要这两个引用未被修改，那么无论被调用多少次x.equals(y)都会一致的返回true，或者一致的返回false</li>
+<li>非空性：对于任何非null的引用x，x.equals(null)必须返回false</li>
+</ul>
+<p>所以对于重写equals方法的对象都可以用以上几条方法去验证，只要有不符合的那么重写的就有问题，那么就只能修改或者不用。</p>
+<p><em>注意：我们无法在扩展可实例化的类的同时，既增加新的值，又保留equals约定。所以这也是建议使用复合而少用继承的原因之一。</em>当然扩展不可实例化的类就不会有这样的问题，例如抽象类。</p>
+<p><strong>重写equals方法的技巧：</strong></p>
+<ul>
+<li>使用==操作符检查是否为这个对象的引用，是则返回true，这属于性能优化</li>
+<li>使用instanceof检测类型是否正确，不正确则返回false</li>
+<li>在执行instanceof之后转为正确的类型</li>
+<li>对于每一个关键的字段都应该要检查是否匹配。</li>
+<li>检测是否具有对称性、传递性以及一致性</li>
+</ul>
+<p><strong>重写equals方法的一些告诫</strong>：</p>
+<ul>
+<li>重写equals方法时需要重写hashCode方法</li>
+<li>不要将equals方法的参数类型Object改为其他类型。</li>
+</ul>
+<h2 id="hashCode方法"><a href="#hashCode方法" class="headerlink" title="hashCode方法"></a>hashCode方法</h2><p>首先对于hashCode方法，只要重写了equals方法则就应该重写它；<strong>核心要求：需要保证两个对象equals返回true，则hashCode返回的数值也要相同；</strong>反之，hashCode相同equals不一定返回true，但是最好满足不同的对象也是不同的hashCode，那样能提高涉及到散列函数的效率。</p>
+<p>这里有一个重写hashCode的模版：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//hashCode的实现方式</span><br><span class="line"></span><br><span class="line">boolean f1 = true;</span><br><span class="line">//int及其以下的都直接相加，包括byte,char,short,int</span><br><span class="line">char f2 = &apos;a&apos;;</span><br><span class="line">long f3 = 19920101;</span><br><span class="line">float f4 = 3.14f;</span><br><span class="line">double f5 = 3.1415926;</span><br><span class="line">String f6 = &quot;asd&quot;;</span><br><span class="line">int[] arr = &#123;0, 1, 2&#125;;</span><br><span class="line">&#123;</span><br><span class="line">    int result = 0;</span><br><span class="line">    //boolean的hashCode</span><br><span class="line">    result = 31 * result + (f1 ? 1 : 0);</span><br><span class="line">    //int及其以下的hashCode    </span><br><span class="line">    result = 31 * result + f2;</span><br><span class="line">    //long的hashCode</span><br><span class="line">    result = 31 * result + (int) (f3 ^ (f3 &gt;&gt;&gt; 32));</span><br><span class="line">    //float的hashCode</span><br><span class="line">    result = 31 * result + Float.floatToIntBits(f4);</span><br><span class="line">    //double的hashCode</span><br><span class="line">    long fl5 = Double.doubleToLongBits(f5);</span><br><span class="line">    result = 31 * result + (int) (fl5 ^ (fl5 &gt;&gt;&gt; 32));</span><br><span class="line">    //string的hashCode</span><br><span class="line">    result = 31 * result + f6.hashCode();</span><br><span class="line">    //数组的hashCode</span><br><span class="line">    result = 31 * result + Arrays.hashCode(arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上边f1到f6以及arr是7种不同的类型如何求hashCode的方式，对于对象就直接调用hashCode在加上31*result即可。</p>
+<p>需要注意的是，hashCode中所用的关键字段应该与equals方法中判断的字段对应相同。避免最后结果不符合要求。</p>
+<h2 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h2><p>这个方法看似不重要，但是在开发调试过程中能有正确的重写这个方法，能把打印对象的内容更简洁，利于调试。</p>
+<h2 id="谨慎覆盖clone方法"><a href="#谨慎覆盖clone方法" class="headerlink" title="谨慎覆盖clone方法"></a>谨慎覆盖clone方法</h2><p>对于clone方法是protected的，我们在使用的时候要做到以下几点：</p>
+<ul>
+<li>必须保证clone对象不会影响原始对象，并正确创建被克隆对象中的约束条件</li>
+<li>如果该类是线程安全则需要对clone方法做好同步</li>
+<li>对于可变的域，最好新建对象，递归赋值</li>
+<li>如果不能提供良好的clone方法，最好用其他方法来代替对象拷贝，或不提供该功能</li>
+<li>实现拷贝对象的好办法是提供拷贝构造器或拷贝工厂，也就是提供一个方法去构造一个新的对象，并赋值</li>
+</ul>
+<h2 id="考虑实现Comparable接口"><a href="#考虑实现Comparable接口" class="headerlink" title="考虑实现Comparable接口"></a>考虑实现Comparable接口</h2><p>实现了它，就能使该对象具有排序功能，便可使用Collections或者Arrays的sort方法，且不用去额外实现Comparator接口了。</p>
+<p>对于实现这个接口，主要就是实现compareTo方法，其中返回值包含-1，0，1；1：表示大于，-1:表示小于，0：表示相同。越大的就在前边。</p>
+<p><em>建议如果是表示相同，那么应该与equals方法中的比较一致</em></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -578,22 +269,143 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/06/23/Java之类的通用方法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/06/25/Java之字符串/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java之字符串
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/06/20/Python抓取QQ音乐歌单并分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python抓取QQ音乐歌单并分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#equals方法"><span class="toc-number">1.</span> <span class="toc-text">equals方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hashCode方法"><span class="toc-number">2.</span> <span class="toc-text">hashCode方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#toString方法"><span class="toc-number">3.</span> <span class="toc-text">toString方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谨慎覆盖clone方法"><span class="toc-number">4.</span> <span class="toc-text">谨慎覆盖clone方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#考虑实现Comparable接口"><span class="toc-number">5.</span> <span class="toc-text">考虑实现Comparable接口</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://arvinljw.github.io/2018/06/23/Java之类的通用方法/",
+  owner: 'arvinljw',
+  repo: 'arvinljw.github.io',
+  oauth: {
+    client_id: '173013408c3102aeca94',
+    client_secret: '0e42e5ac34a4333d544cd23cf0010b4ea4e25123',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -617,8 +429,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
