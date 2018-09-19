@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Python生成词云 | arvinljwBlog</title>
+  <title>Android开源之PermissionHelper | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="词云，从刚开始学习Python的时候就看到过，觉得特别高大上，因为它能很直观的分析出，什么词语出现的频率高，表现方式也很友好。想着我也一定要自己做出来～后来没想到实现词云的方法居然挺简单的，开源真是特别好，真是完全符合Python的优雅简洁呀，接下来直入正题～">
-<meta name="keywords" content="Python">
+  <meta name="description" content="最近又看到有人是分享使用空Fragment，来避免重写onActivityResult进行Activity之间信息的交互，这让我想起了之前看到的RxPermissions这个库也是使用这个原理去申请权限，当时觉得居然还有这种操作，想象力真是太好了。">
+<meta name="keywords" content="Android,开源库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python生成词云">
-<meta property="og:url" content="https://arvinljw.github.io/2018/06/11/Python生成词云/index.html">
+<meta property="og:title" content="Android开源之PermissionHelper">
+<meta property="og:url" content="https://arvinljw.github.io/2018/09/19/Android开源之PermissionHelper/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="词云，从刚开始学习Python的时候就看到过，觉得特别高大上，因为它能很直观的分析出，什么词语出现的频率高，表现方式也很友好。想着我也一定要自己做出来～后来没想到实现词云的方法居然挺简单的，开源真是特别好，真是完全符合Python的优雅简洁呀，接下来直入正题～">
+<meta property="og:description" content="最近又看到有人是分享使用空Fragment，来避免重写onActivityResult进行Activity之间信息的交互，这让我想起了之前看到的RxPermissions这个库也是使用这个原理去申请权限，当时觉得居然还有这种操作，想象力真是太好了。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-56bfe7d7b7ae2ea3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/150">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3157525-1866123c6284716a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/150">
-<meta property="og:updated_time" content="2018-06-11T12:33:46.107Z">
+<meta property="og:updated_time" content="2018-09-19T09:02:13.381Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python生成词云">
-<meta name="twitter:description" content="词云，从刚开始学习Python的时候就看到过，觉得特别高大上，因为它能很直观的分析出，什么词语出现的频率高，表现方式也很友好。想着我也一定要自己做出来～后来没想到实现词云的方法居然挺简单的，开源真是特别好，真是完全符合Python的优雅简洁呀，接下来直入正题～">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3157525-56bfe7d7b7ae2ea3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/150">
+<meta name="twitter:title" content="Android开源之PermissionHelper">
+<meta name="twitter:description" content="最近又看到有人是分享使用空Fragment，来避免重写onActivityResult进行Activity之间信息的交互，这让我想起了之前看到的RxPermissions这个库也是使用这个原理去申请权限，当时觉得居然还有这种操作，想象力真是太好了。">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -176,52 +173,91 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Python生成词云" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Android开源之PermissionHelper" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Python生成词云
+      Android开源之PermissionHelper
     </h1>
   
 
         
-        <a href="/2018/06/11/Python生成词云/" class="archive-article-date">
-  	<time datetime="2018-06-11T11:41:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
+        <a href="/2018/09/19/Android开源之PermissionHelper/" class="archive-article-date">
+  	<time datetime="2018-09-19T08:58:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>词云，从刚开始学习Python的时候就看到过，觉得特别高大上，因为它能很直观的分析出，什么词语出现的频率高，表现方式也很友好。想着我也一定要自己做出来～后来没想到实现词云的方法居然挺简单的，开源真是特别好，真是完全符合Python的优雅简洁呀，接下来直入正题～</p>
+        <p>最近又看到有人是分享使用空Fragment，来避免重写onActivityResult进行Activity之间信息的交互，这让我想起了之前看到的RxPermissions这个库也是使用这个原理去申请权限，当时觉得居然还有这种操作，想象力真是太好了。</p>
 <a id="more"></a>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我们用到的第三方包是<strong>wordcloud</strong>，我是在pycharm中编写的，直接使用pip安装即可:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install wordcloud</span><br></pre></td></tr></table></figure>
-<p>在安装wordcloud过程中发现其实还安装了matplotlib、numpy、pillow等一系列其他包。然后，对于词我们要进行拆分，使用的是<strong>jieba</strong>，安装也很简单：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jieba</span><br></pre></td></tr></table></figure>
-<p>安装的内容就基本这些。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>废话不多说直接先看看结果：</p>
-<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://upload-images.jianshu.io/upload_images/3157525-56bfe7d7b7ae2ea3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/150"></div>
-
-<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://upload-images.jianshu.io/upload_images/3157525-1866123c6284716a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/150"></div>
-
-<div style="float:none;clear:both;">
-
-<p>对于引入的内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from wordcloud import WordCloud</span><br><span class="line">import jieba</span><br><span class="line">from scipy.misc import imread</span><br><span class="line">from PIL import Image</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br></pre></td></tr></table></figure>
-<h3 id="获取词的内容"><a href="#获取词的内容" class="headerlink" title="获取词的内容"></a>获取词的内容</h3><p>一般可以通过爬取某个网站获取数据，也可以更简单一点，拷贝一篇文章保存在本地来分析。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(&apos;test.txt&apos;, &apos;r&apos;, encoding=&quot;utf-8&quot;) as f:</span><br><span class="line">    text = &quot; &quot;.join(jieba.cut(f.read()))</span><br></pre></td></tr></table></figure>
-<p>这里的含义就是打开文件，使用jieba分词，然后通过空格来分割，就得到了最后传递给wordcloud的内容。</p>
-<h3 id="获取遮罩图"><a href="#获取遮罩图" class="headerlink" title="获取遮罩图"></a>获取遮罩图</h3><p>官方的方式，通过numpy去获取：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alice_mask = np.array(Image.open(&quot;alice_mask.png&quot;))</span><br></pre></td></tr></table></figure>
-<p>这样就获取到了遮罩图，稍后传入wordcloud中即可。</p>
-<h3 id="显示词云"><a href="#显示词云" class="headerlink" title="显示词云"></a>显示词云</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wordCloud = WordCloud(font_path=&apos;msyh.ttf&apos;,</span><br><span class="line">                      background_color=&apos;white&apos;,</span><br><span class="line">                      max_words=500,</span><br><span class="line">                      max_font_size=80,</span><br><span class="line">                      random_state=40,</span><br><span class="line">                      mask=alice_mask)</span><br><span class="line">wordcloud.generate(text)</span><br><span class="line">plt.imshow(wordCloud, interpolation=&apos;bilinear&apos;)</span><br><span class="line">plt.axis(&quot;off&quot;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>先创建wordcloud，再使用plt显示。如果包含中文内容，需要设置font_path为中文的字体，然后mask为传入的遮罩图。词云的内容设置则通过generate即可。</p>
-<p>这样一来就大功告成了。</p>
-</div>
+<p>但是即使它这个再好，我还是想说我这个可能更好一点。</p>
+<p><a href="https://github.com/arvinljw/PermissionHelper" target="_blank" rel="noopener">项目地址</a></p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>没有使用多余的第三方库</li>
+<li>Google权限申请的最佳实践</li>
+<li>使用简单，低耦合，可自定义提示框样式</li>
+<li>集成6.0、7.0、8.0权限（<strong>后两个待完善</strong>）</li>
+<li>申请Manifest中没有的权限时，增加提示（<strong>待完成</strong>）</li>
+</ul>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p><strong>1、在根目录的build.gradle中加入如下配置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        ...</span><br><span class="line">        maven &#123; url &apos;https://jitpack.io&apos; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2、在要是用的module中增加如下引用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    implementation &apos;com.android.support:appcompat-v7:27.1.1&apos;</span><br><span class="line">    implementation &apos;com.github.arvinljw:PermissionHelper:v1.0.0&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p><strong>1、初始化PermissionUtil</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">permissionUtil = new PermissionUtil.Builder()</span><br><span class="line">        .with(this)//必传：可使用FragmentActivity或v4.app.Fragment实例</span><br><span class="line">        .setTitleText(&quot;提示&quot;)//弹框标题</span><br><span class="line">        .setEnsureBtnText(&quot;确定&quot;)//权限说明弹框授权按钮文字</span><br><span class="line">        .setCancelBtnText(&quot;取消&quot;)//权限说明弹框取消授权按钮文字</span><br><span class="line">        .setSettingEnsureText(&quot;设置&quot;)//打开设置说明弹框打开按钮文字</span><br><span class="line">        .setSettingCancelText(&quot;取消&quot;)//打开设置说明弹框关闭按钮文字</span><br><span class="line">        .setSettingMsg(&quot;当前应用缺少必要权限。\n请点击\&quot;设置\&quot;-\&quot;权限\&quot;-打开所需权限。&quot;)//打开设置说明弹框内容文字</span><br><span class="line">        .setShowSetting(true)//是否打开设置说明弹框</span><br><span class="line">        .setTitleColor(Color.BLACK)//弹框标题文本颜色</span><br><span class="line">        .setMsgColor(Color.GRAY)//弹框内容文本颜色</span><br><span class="line">        .setEnsureBtnColor(Color.BLACK)//弹框确定文本颜色</span><br><span class="line">        .setCancelBtnColor(Color.BLACK)//弹框取消文本颜色</span><br><span class="line">        .build();</span><br></pre></td></tr></table></figure>
+<p>需要说明一下这里可能有两个弹框：</p>
+<ul>
+<li>第一个弹框：第一次申请权限被拒绝后，弹出的弹框，解释为什么需要这个权限。</li>
+<li>第二个弹框：打开设置说明的弹框，只有当isShowSetting为true的时候，被拒绝一次之后，再次申请时再次拒绝且还点了不再提示，则通过打开设置去让用户手动修改权限。</li>
+</ul>
+<p>其中弹框使用的是AlertDialog，通过反射去修改文本颜色，不设置则不会调用反射方法，会有默认颜色：</p>
+<ul>
+<li>标题使用：textAppearanceLarge样式</li>
+<li>内容实用：textAppearanceMedium样式</li>
+<li>按钮颜色：默认使用colorAccent的颜色</li>
+</ul>
+<p><strong>2、申请权限并回调</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">permissionUtil.request(&quot;需要读取联系人权限&quot;,</span><br><span class="line">        Manifest.permission.READ_PHONE_STATE,</span><br><span class="line">        new PermissionUtil.RequestPermissionListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void callback(boolean granted, boolean isAlwaysDenied) &#123;</span><br><span class="line">                if (granted) &#123;</span><br><span class="line">                    //do your jobs..</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    //show some tips..</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个参数：是申请权限说明，会在上文说的第一个弹框中作为内容显示</li>
+<li><p>第二个参数：是一个所要申请的权限字符串，也可以使用字符串数组，例如申请多个权限可使用：</p>
+<p>  <code>PermissionUtil.asArray(Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_CONTACTS)</code></p>
+</li>
+<li><p>第三个参数：申请权限的回调，<code>granted</code>表示是否通过，如果有多个权限的话表示是否全部通过；<code>isAlwaysDenied</code> false表示会重复提示，true表示拒绝且不再提示</p>
+</li>
+</ul>
+<p>通过这两步，就能完全权限的申请了，当然这里申请的权限需要在配置文件中定义。</p>
+<p><strong>3、清除permissionUtil持有的回调</strong></p>
+<p>这一步清除回调，避免匿名内部类引起的内存泄露。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (permissionUtil != null) &#123;</span><br><span class="line">    permissionUtil.removeListener();</span><br><span class="line">    permissionUtil = null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="混淆"><a href="#混淆" class="headerlink" title="混淆"></a>混淆</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep class net.arvin.permissionhelper.**&#123;*;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>这里想说，<strong>有的手机只要用户永久拒绝了权限，那么打开设置去手动打开权限也是无效的</strong>，索然会回调已获取权限，但是实际的使用中是获取不到那些信息的，例如联系人或者手机设备信息，我测试到的例如小米。当然如果能获取到的自然就不用管了。</p>
+<p><strong>这个问题目前测试的其他库也存在，所以这个问题尚未找到最好的解决方案</strong></p>
+<p>我参考了支付宝发现，在申请权限之前就先弹一个框告诉用户我需要这个权限，你要给我，如果你不给，就不去申请权限。但是如果点了给权限，但是在真正的权限弹框时又不给，依然无法解决，这个是系统的原因，改不了。</p>
+<p>目前有两个办法能让处于拒绝且不再提示的应用重新获取权限：</p>
+<ul>
+<li>打开应用设置详情界面（参照lib中打开方式），然后用户手动关闭相应权限，如果已关闭则打开再关闭，这时候这个系统会发送一个广播重启该应用，所以需要做好数据保存和恢复工作。</li>
+<li>第二种方式就是手动清除应用所有数据，之前所有权限以及缓存都会消失，这种显然不是很友好，要是能找到权限的缓存数据存在哪个地方去手动清除也是一种办法，知道的朋友请不吝赐教。</li>
+</ul>
+<p>这是我发现的这个问题，要是有更好的解决方案，从而不会有这个问题的也请不吝赐教，那就非常感谢了。</p>
+<p>如果觉得好，可以star支持一下。</p>
+<p><a href="https://github.com/arvinljw/PermissionHelper" target="_blank" rel="noopener">项目地址</a></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><strong>参考文章：</strong></p>
+<ul>
+<li><a href="https://developer.android.google.cn/training/permissions/requesting" target="_blank" rel="noopener">Request app permissions</a></li>
+<li><a href="https://developer.android.google.cn/training/permissions/usage-notes" target="_blank" rel="noopener">App permissions best practices</a></li>
+</ul>
+<p><strong>参考项目：</strong></p>
+<ul>
+<li><a href="https://github.com/tbruyelle/RxPermissions" target="_blank" rel="noopener">RxPermissions</a></li>
+<li><a href="https://github.com/googlesamples/easypermissions" target="_blank" rel="noopener">easypermissions</a></li>
+</ul>
+<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Copyright 2018 arvinljw</span><br><span class="line"></span><br><span class="line">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line">you may not use this file except in compliance with the License.</span><br><span class="line">You may obtain a copy of the License at</span><br><span class="line"></span><br><span class="line">  http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line"></span><br><span class="line">Unless required by applicable law or agreed to in writing, software</span><br><span class="line">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">See the License for the specific language governing permissions and</span><br><span class="line">limitations under the License.</span><br></pre></td></tr></table></figure>
       
 
       
@@ -234,7 +270,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源库</a>
         		</li>
       		
 		</ul>
@@ -290,7 +330,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/06/11/Python生成词云/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2018/09/19/Android开源之PermissionHelper/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,18 +344,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/06/12/Java之多态/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java之多态
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/06/Java之复用类/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java之复用类</div>
+    <a href="/2018/09/03/Java之类和接口/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java之类和接口</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -342,7 +373,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-number">2.</span> <span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取词的内容"><span class="toc-number">2.1.</span> <span class="toc-text">获取词的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取遮罩图"><span class="toc-number">2.2.</span> <span class="toc-text">获取遮罩图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示词云"><span class="toc-number">2.3.</span> <span class="toc-text">显示词云</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#优点"><span class="toc-number">1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用法"><span class="toc-number">2.</span> <span class="toc-text">用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-number">2.1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用"><span class="toc-number">2.2.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混淆"><span class="toc-number">3.</span> <span class="toc-text">混淆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意"><span class="toc-number">4.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#License"><span class="toc-number">6.</span> <span class="toc-text">License</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -367,7 +398,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://arvinljw.github.io/2018/06/11/Python生成词云/",
+  id: "https://arvinljw.github.io/2018/09/19/Android开源之PermissionHelper/",
   owner: 'arvinljw',
   repo: 'arvinljw.github.io',
   oauth: {
