@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arvinljw.github.io">
-  <title>Archives: 2018 | arvinljwBlog</title>
+  <title>Mac下交叉编译FFmpeg3.4.5出Android的so包 | arvinljwBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android、Python等学习总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="arvinljwBlog">
-<meta property="og:url" content="https://arvinljw.github.io/archives/2018/page/2/index.html">
+  <meta name="description" content="在网上找了很多资料都从未编译成功过，一度特别失望；终于看了夏曹俊老师的视频播放器开发课之后也经过几番周折，最后成功了，在此总结一下，希望对在寻找资料的人有所帮助。">
+<meta name="keywords" content="技术杂谈,FFmpeg交叉编译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac下交叉编译FFmpeg3.4.5出Android的so包">
+<meta property="og:url" content="https://arvinljw.github.io/2019/01/10/Mac下交叉编译FFmpeg3.4.5出Android的so包/index.html">
 <meta property="og:site_name" content="arvinljwBlog">
-<meta property="og:description" content="Android、Python等学习总结">
+<meta property="og:description" content="在网上找了很多资料都从未编译成功过，一度特别失望；终于看了夏曹俊老师的视频播放器开发课之后也经过几番周折，最后成功了，在此总结一下，希望对在寻找资料的人有所帮助。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-10T08:07:14.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arvinljwBlog">
-<meta name="twitter:description" content="Android、Python等学习总结">
+<meta name="twitter:title" content="Mac下交叉编译FFmpeg3.4.5出Android的so包">
+<meta name="twitter:description" content="在网上找了很多资料都从未编译成功过，一度特别失望；终于看了夏曹俊老师的视频播放器开发课之后也经过几番周折，最后成功了，在此总结一下，希望对在寻找资料的人有所帮助。">
   
     <link rel="alternative" href="/atom.xml" title="arvinljwBlog" type="application/atom+xml">
   
@@ -171,403 +173,229 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Mac下交叉编译FFmpeg3.4.5出Android的so包" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac下交叉编译FFmpeg3.4.5出Android的so包
+    </h1>
+  
+
+        
+        <a href="/2019/01/10/Mac下交叉编译FFmpeg3.4.5出Android的so包/" class="archive-article-date">
+  	<time datetime="2019-01-10T07:00:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网上找了很多资料都从未编译成功过，一度特别失望；终于看了夏曹俊老师的视频播放器开发课之后也经过几番周折，最后成功了，在此总结一下，希望对在寻找资料的人有所帮助。</p>
+<a id="more"></a>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>这里两大主角就是：</p>
+<ul>
+<li>FFmpeg（版本是3.4.5）</li>
+<li>NDK（版本android-ndk-r15c）</li>
+</ul>
+<p><strong>特别注意这里版本是关键，下错了估计不行</strong></p>
+<p>我最开始下载了ffmpeg4.1不行，4.0.3还是不行，最后使用了3.4.5终于可以了；当然这里ndk我事先查资料知道了ndk16以后删除了一些东西，必须用15以及以下的才可以。</p>
+<p>下载方式有很多，这里是官方的<a href="https://git.ffmpeg.org/gitweb/ffmpeg.git/commit/cb74b3ff27d510c62b6a78fef5a416674bbb4e51" target="_blank" rel="noopener">FFmpeg3.4.5文件</a>，进入界面点击snapshot就能下载了，是一个.tar.gz文件，下载下来之后解压到某个目录即可，这个在哪都没有关系。</p>
+<p>然后就是下载DNK，这个也是在官网下载就行，<a href="https://dl.google.com/android/repository/android-ndk-r15c-darwin-x86_64.zip" target="_blank" rel="noopener">mac版ndk-r15c</a>，下载好也是解压好就可以了，放哪也没有关系，但是最好放在一起。</p>
+<p><em>我是建了一个ffmpeg目录，在目录下把ndk和ffmpeg-3.4.5放在一起的。</em></p>
+<p>下载好之后，就可以执行命令了，并不需要修改configure文件，因为从3.4开始编译成android动态链接库的名称就是对的了。</p>
+<h2 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h2><p>一般编译都有三部：</p>
+<ul>
+<li>执行<code>configure</code>文件</li>
+<li>执行<code>make</code>命令编译</li>
+<li>执行<code>make install</code>命令打包</li>
+</ul>
+<p>但是我们在执行configure文件的时候一般都会加一些参数，这就是<strong>本文的重点</strong>，我整理成了编译脚本，配置了armv7-a和x86的。</p>
+<p>首先创建一个build_android.sh的脚本文件，名字随意，然后将下边的脚本复制过去修改ndk的路径即可。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>将build_android.sh脚本放到ffmpeg3.4.5目录下，然后执行<code>chmod +x build_android.sh</code>命令给脚本增加权限，再直接执行<code>./build_android.sh</code>即可。</p>
+<p>当然最好先看完我下边的讲解再执行也不晚，下边有脚本的解释。当然你也可以把脚本中NDK路径修改之后，再把make和make install命令注释掉之后运行这个脚本也是可以的。如果出错了再看看下边的解释，看看配置是否有问题。</p>
+<p>脚本如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo &quot;进入编译ffmpeg脚本&quot;</span><br><span class="line">NDK=/Users/arvin/develop/ffmpeg/ndk/android-ndk-r15c</span><br><span class="line"></span><br><span class="line">function buildFF</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;开始编译ffmpeg&quot;</span><br><span class="line"></span><br><span class="line">    ARM=$1</span><br><span class="line">    DST=$2</span><br><span class="line">    ABI_PREFIX=$3</span><br><span class="line">    PLATFORM=$NDK/platforms/android-21/arch-$ARM</span><br><span class="line">    TOOLCHAIN=$NDK/toolchains/$DST-4.9/prebuilt/darwin-x86_64</span><br><span class="line"></span><br><span class="line">    echo &quot;ABI_PREFIX = $&#123;ABI_PREFIX&#125;&quot;</span><br><span class="line">    echo &quot;PLATFORM = $&#123;PLATFORM&#125;&quot;</span><br><span class="line">    echo &quot;TOOLCHAIN = $&#123;TOOLCHAIN&#125;&quot;</span><br><span class="line"></span><br><span class="line">    ./configure \</span><br><span class="line">    --prefix=$PREFIX \</span><br><span class="line">    --target-os=android \</span><br><span class="line">    --cross-prefix=$TOOLCHAIN/bin/$ABI_PREFIX- \</span><br><span class="line">    --arch=$ARM \</span><br><span class="line">    --sysroot=$PLATFORM \</span><br><span class="line">    --extra-cflags=&quot;$CFLAG&quot; \</span><br><span class="line">    --cc=$TOOLCHAIN/bin/$ABI_PREFIX-gcc \</span><br><span class="line">    --nm=$TOOLCHAIN/bin/$ABI_PREFIX-nm \</span><br><span class="line">    --enable-shared \</span><br><span class="line">    --enable-runtime-cpudetect \</span><br><span class="line">    --enable-gpl \</span><br><span class="line">    --enable-small \</span><br><span class="line">    --enable-cross-compile \</span><br><span class="line">    --disable-debug \</span><br><span class="line">    --disable-static \</span><br><span class="line">    --disable-doc \</span><br><span class="line">    --disable-ffmpeg \</span><br><span class="line">    --disable-ffplay \</span><br><span class="line">    --disable-ffprobe \</span><br><span class="line">    --disable-ffserver \</span><br><span class="line">    --disable-postproc \</span><br><span class="line">    --disable-avdevice \</span><br><span class="line">    --disable-symver \</span><br><span class="line">    --disable-stripping \</span><br><span class="line">    $ADD </span><br><span class="line">    make -j16</span><br><span class="line">    make install</span><br><span class="line">    echo &quot;编译结束！&quot;</span><br><span class="line">&#125;</span><br><span class="line">###########################################################</span><br><span class="line">echo &quot;编译armv7-a支持neon和硬解码&quot;</span><br><span class="line">CPU=armv7-a</span><br><span class="line">PREFIX=./android/$CPU-neon-hard</span><br><span class="line">CFLAG=&quot;-I$PLATFORM/usr/include -fPIC -DANDROID -mfpu=neon -mfloat-abi=softfp &quot;</span><br><span class="line">ADD=&quot;--cpu=$CPU \</span><br><span class="line">    --enable-asm \</span><br><span class="line">    --enable-neon \</span><br><span class="line">    --enable-jni \</span><br><span class="line">    --enable-mediacodec \</span><br><span class="line">    --enable-decoder=h264_mediacodec \</span><br><span class="line">    --enable-hwaccel=h264_mediacodec &quot;</span><br><span class="line">buildFF arm arm-linux-androideabi arm-linux-androideabi</span><br><span class="line"></span><br><span class="line">###########################################################</span><br><span class="line"># echo &quot;编译x86支持neon和硬解码&quot;</span><br><span class="line"># PREFIX=./android/x86-neon-hard</span><br><span class="line"># CFLAG=&quot;&quot;</span><br><span class="line"># ADD=&quot;--extra-libs=-lgcc \</span><br><span class="line">#     --disable-asm \</span><br><span class="line">#     --enable-neon \</span><br><span class="line">#     --enable-jni \</span><br><span class="line">#     --enable-mediacodec \</span><br><span class="line">#     --enable-decoder=h264_mediacodec \</span><br><span class="line">#     --enable-hwaccel=h264_mediacodec &quot;</span><br><span class="line"># buildFF x86 x86 i686-linux-android</span><br></pre></td></tr></table></figure>
+<h3 id="脚本解释"><a href="#脚本解释" class="headerlink" title="脚本解释"></a>脚本解释</h3><p>其中命令有一些比较重要的下边依次介绍。</p>
+<ul>
+<li><code>#!/bin/bash</code>这个注释表示这是一个bash脚本</li>
+<li><code>echo</code>是用来打印变量，方便调试的</li>
+<li>NDK=你的ndk路径，这种方式是命名变量并赋值</li>
+<li>function是定义函数，这里定义了一个buildFF函数，方便调用，后边可以加参数，在方法中通过\$+数字获取，第一个参数就是\$1，以此类推</li>
+<li><strong>PLATFORM是编译的架构，armv7-a就是arm架构，可以看到在<code>ndk/platforms/android-某个版本</code>目录下有很多<code>arch-各种架构</code>的文件</strong></li>
+<li><strong>TOOLCHAINS是交叉编译的工具，选择的目录表示在哪个系统下编译成哪个系统架构，以编译成armv7-a架构为例，就表示在mac系统下编译成arm-linux-androideabi-49。其实自己也可以去ndk/toolchains目录下看一下，就大概明白了</strong></li>
+<li>下边介绍<strong>configure的参数</strong>，<code>--prefix</code>表示make install成功之后输出文件的路径</li>
+<li><code>--target-os</code>这里我们编译成android，很多文章写成linux，可能是在3.2以前可以吧，现在需要写成android，不然可能会有些头文件找不到</li>
+<li><code>--cross-prefix</code>就是交叉编译工具的前缀，可以去那个目录下，你就能看到为什么这样写了</li>
+<li><code>--arch</code>这个就是编译成什么架构，这里有两种armv7-a和x86的</li>
+<li><code>--sysroot</code>这个就是platform的路径，表示在这个平台下的库文件为基础</li>
+<li><code>--extra-cflags</code>是给gcc编译时增加的指令，在编译armv7-a架构的时候加上那些参数才能成功，其中-mfpu是指让gcc知道要使用neon协处理器，而在x86的编译时，这些指令都不能加，可能是x86架构下gcc对这些指令不支持，所以要去掉才能成功</li>
+<li><code>--cc</code>和<code>--nm</code>就是指定gcc和nm的位置</li>
+<li>然后就是一系列<code>--enable</code>指令和<code>--disable</code>指令，就不一一介绍了</li>
+<li>make -j16是开启16个线程去执行编译，这样会快很多</li>
+</ul>
+<p>其中在执行脚本之前，大家可以先把脚本函数中的<code>make</code>和<code>make install</code>注释掉，因为编译过程也会花不少时间，注释掉之后执行，就只需要看配置是否有问题。没有error之后再解开注释执行。</p>
+<p>注意在每次执行了脚本之后最好执行一下<code>make clean</code>清理一下。</p>
+<p>对于armv7-a和x86的编译cflag和ADD的内容不一样，cflag在上文中说了，ADD部分，前者需要添加cpu类型，后者不需要，但是需要加上<code>--extra-libs=-lgcc</code>和<code>--disable-asm</code>指令：</p>
+<ul>
+<li><code>--extra-libs=-lgcc</code>是为了让x86架构下gcc执行编译不报错</li>
+<li><code>--disable-asm</code>是为了让x86架构在as中使用的时候不会出现text relocation错误，意思是禁止汇编</li>
+</ul>
+<p>到这里基本就讲述完成了，说起来内容不多，但是在不了解的情况下，出了错真的一点办法都没有。希望本文对还没有编译成功的人有帮助。</p>
+<p><strong>我也是刚接触这一块，若有不当之处请多多指教。</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/23/Java之类的通用方法/" class="archive-article-date">
-  	<time datetime="2018-06-23T13:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/23/Java之类的通用方法/">Java之类的通用方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术杂谈</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">《Effective Java》</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">FFmpeg交叉编译</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://arvinljw.github.io/2019/01/10/Mac下交叉编译FFmpeg3.4.5出Android的so包/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/20/Python抓取QQ音乐歌单并分析/" class="archive-article-date">
-  	<time datetime="2018-06-20T10:00:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/19/Android开源之PermissionHelper/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android开源之PermissionHelper</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/20/Python抓取QQ音乐歌单并分析/">Python抓取QQ音乐歌单并分析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Scrapy爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译过程"><span class="toc-number">2.</span> <span class="toc-text">编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法"><span class="toc-number">2.1.</span> <span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本解释"><span class="toc-number">2.2.</span> <span class="toc-text">脚本解释</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/14/Java之接口和内部类/" class="archive-article-date">
-  	<time datetime="2018-06-14T06:56:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/14/Java之接口和内部类/">Java之接口和内部类</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《Thinking in Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/12/Java之多态/" class="archive-article-date">
-  	<time datetime="2018-06-12T02:42:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/12/Java之多态/">Java之多态</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《Thinking in Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/11/Python生成词云/" class="archive-article-date">
-  	<time datetime="2018-06-11T11:41:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/11/Python生成词云/">Python生成词云</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/06/Java之复用类/" class="archive-article-date">
-  	<time datetime="2018-06-06T04:50:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/06/Java之复用类/">Java之复用类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《Thinking in Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/Java之操作符、流程控制、初始化和清理以及访问权限控制/" class="archive-article-date">
-  	<time datetime="2018-06-05T03:26:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/Java之操作符、流程控制、初始化和清理以及访问权限控制/">Java之操作符、流程控制、初始化和清理以及访问权限控制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《Thinking in Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/03/Java之对象的创建和销毁/" class="archive-article-date">
-  	<time datetime="2018-06-03T14:07:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/03/Java之对象的创建和销毁/">Java之对象的创建和销毁</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">《Effective Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/30/Java之一切皆对象/" class="archive-article-date">
-  	<time datetime="2018-05-30T03:36:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/30/Java之一切皆对象/">Java之一切皆对象</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《Thinking in Java》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://arvinljw.github.io/2019/01/10/Mac下交叉编译FFmpeg3.4.5出Android的so包/",
+  owner: 'arvinljw',
+  repo: 'arvinljw.github.io',
+  oauth: {
+    client_id: '173013408c3102aeca94',
+    client_secret: '0e42e5ac34a4333d544cd23cf0010b4ea4e25123',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -591,8 +419,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
